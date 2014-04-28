@@ -34,8 +34,8 @@ typedef pair<LL,int>PLI;
 #define MP make_pair
 #define PB push_back
 
-const int MaxN = 1000005;
-const double eps = 1e-8;
+const int MaxN = 4000005;
+const double eps = 1e-11;
 const double DINF = 1e100;
 const int INF = 1000000006;
 const LL LINF = 1000000000000000005ll;
@@ -80,13 +80,13 @@ struct Interver {
 	Interver(double pos, int d) : pos(pos), d(d) {}
 	bool operator < (const Interver &b) const {
 		if (dcmp(pos - b.pos) == 0) return d > b.d;
-		return dcmp(pos - b.pos) < 0;
+		return pos < b.pos;
 	}
 } interver[MaxN];
 int m;
 void check(Point c1, double d, Point c2, double r2) {
 	int up = ((c1 - c2).len() - r2) / d;
-	for (int i = 0; i < 40; ++i) {
+	for (int i = -2; i < 50; ++i) if (up + i >= 1) {
 		vector<Point> inter = getCC(c1, d * (up + i), c2, r2);
 		if (inter.size() == 0) continue;
 		double ang1 = inter[0].ang();
@@ -104,7 +104,7 @@ void check(Point c1, double d, Point c2, double r2) {
 }
 int main()
 {
-	//freopen("in","r",stdin);
+//	freopen("in","r",stdin);
 
 	int n;
 	double d;
