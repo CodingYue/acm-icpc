@@ -26,8 +26,17 @@ const double eps = 1e-8;
 const double DINF = 1e100;
 class SquareDivisor {
 public:
+	LL mysqrt(LL x) {
+		LL l = 1, r = 1e18+10;
+		while (l + 1 < r) {
+			LL mid = (l + r) >> 1;
+			if (mid > x) { r = mid; continue; }
+			if (mid * mid > x) r = mid; else l = mid;
+		}
+		return l;
+	}
 	bool check(LL x) {
-		LL y = sqrt(x);
+		LL y = mysqrt(x);
 		return y * y == x;
 	}
 	long long biggest(long long n) {
@@ -85,8 +94,8 @@ int main() {
 	
 	{
 	// ----- test 0 -----
-	p0 = 12ll;
-	p1 = 4ll;
+	p0 = 999950890999656188ll;
+	p1 = 106276ll;
 	all_right = KawigiEdit_RunTest(0, p0, true, p1) && all_right;
 	// ------------------
 	}
