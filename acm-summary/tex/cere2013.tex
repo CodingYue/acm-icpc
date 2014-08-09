@@ -1,0 +1,196 @@
+\documentclass[a4paper, 11pt, nofonts, nocap, fancyhdr]{ctexart}
+\usepackage{graphicx} 
+
+\usepackage[margin=60pt]{geometry}
+
+\setCJKmainfont[BoldFont={FZHei-B01}, ItalicFont={FZKai-Z03}]{FZShuSong-Z01}
+\setCJKmonofont{FZShuSong-Z01}
+
+\CTEXoptions[today=small]
+
+\pagestyle{plain}
+
+
+
+% \fancyhead[L]{\small{team name}}
+% \fancyhead[C]{\small{FSTC 2014 - 05 - 训练报告}}
+% \fancyhead[R]{\small{2014年8月2日}}
+
+\renewcommand{\thesubsubsection}{Problem \Alph{subsubsection}.}
+\newcommand{\problem}[1]{\subsubsection{#1}}
+
+\title{Fudan ACM-ICPC Summer Training Camp 2014\\第8场训练报告}
+\author{Team 1}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{概况}
+
+本场训练，我们队伍在比赛中完成了6道题目，比赛后完成了6题目，共完成12道题目。已经完成本场训练所有题目。
+
+\section{训练过程}
+
+yy视角
+
+xhm从A看起, 我从L看起. 看完之后发现L是逗比题. 6min - L - 1Y.
+
+然后xhm说B是逗比题, 于是让xhm写B. 19min - B - 1Y.
+
+我看了J, 想了5分钟无果, 于是看I, 和xhm讨论之后发现是逗比题, xhm上去写了splay. 而我则去想C. 104min - I - 1Y.
+
+C题想了错误算法, 写了一半发现不太对头. 于是去上了个厕所, 回来就发现是个逗比题. 于是 97min - C - 1Y.
+
+xhm 开始写K, 我准备写D. xhm wa了一发K, 就print代码下来看. 我上去码D. 
+
+xhm 觉得不可能wa, 然后把输出改成字典序最小. 就过了. 过了. 了...... (说好的spj呢?) 141min - K - 2Y.
+
+D题真是恶心哭了. 想得太简单, 以为是个最短路.  期间xhm 上去写了F. 191min - F - 1Y. 然后xhm说会写E了, 结果他也不太精神. 就没过E.
+
+比赛结束.
+
+\section{解题报告}
+
+\problem{Rubik’s Rectangle}
+
+\begin{description}
+\item[负责] 杨越
+\item[情况] 赛后通过
+\end{description}
+
+一看到这题就想到了魔方,  如何在不影响别的情况下做移动 。
+
+先考虑必然无解的情况。很容易想到对中心点上下左右对称的可以看做一个东西. 如果对于原矩阵来说, 4个角的某个数不在这四个里面必定无解.
+
+然后就考虑如何不影响别的. 参考了以前玩魔方的经历, 存在着一种不影响4个以外的格子的操作. 效果是将某个直角的三个顶点, 做一次shift。 可以shift left 亦可以shift right.
+
+有了这个的话, 我们可以把 1移到左上角, 4移到右下角. 这时如果2, 3已经排好, 就行了. 如果排不好, 那么就进入到下一种情况.
+
+我们称这个是特殊的. 那么我们可以对某一行或者某一列翻转奇数次. 只要翻转一次, 特殊就变成不特殊, 否则不特殊变成特殊. 然后对于每一个, 我们可以规约到左上角. 也就是, 可以通过左上角的行列操作, 实现交换2, 3位置.
+
+然后就可以想到这么一个模型, 是否存在一种方案, 对于某一行或者某一列flip, 然后将矩阵内所有为1的点变成0. 这个可以二分图染色.
+
+于是算法就是求出一个方案, 让所有的各点都是非特殊的, 然后在shift成我们所需要的矩阵.
+
+\problem{What does the fox say?}
+
+\begin{description}
+\item[负责] 邢皓明
+\item[情况] 比赛中通过 - 19min - 1Y 
+\end{description}
+
+开场题.
+
+\problem{Magical GCD}
+
+\begin{description}
+\item[负责] 杨越
+\item[情况] 比赛中通过 - 104min - 1Y
+\end{description}
+
+枚举右端点后, 考虑决策点. 对于从右开始的一段整体gcd相等的, 合并成一段. 然后发现由于gcd递减, 所以只会有log个不同的gcd值. 暴力即可.
+
+\problem{Subway}
+
+\begin{description}
+\item[负责] 杨越
+\item[情况] 赛后通过
+\end{description}
+
+对于链bfs, 然后由于每条链只会经过一次, 于是对于链上的dp一下就好了.
+
+\problem{Escape}
+
+\begin{description}
+\item[负责] 邢皓明
+\item[情况] 赛后通过
+\end{description}
+
+先把1到t的链拿出来，形成一个主链+若干子树的结构。
+
+对于一个子树，如果它是一条链，我们可以将这条连“规整”成正负相间的样子。
+
+令一负一正为一对，对于相邻的两对，如果前面那对的收益$\leq0$，则合并到后面那对，如果前面那对的负值的绝对值大于后面的负值的绝对值，则同样合并两对经过这样“规整”后，变成了收益都$>0$，按负值单增的一条链。
+
+如果对于一个点，它的所有儿子都是这样的链，则我们可以通过类似归并排序的手段（实现中使用启发式合并或者可并堆）将其弄成一条这样的链，因而我们递归地证明了任何一棵子树都可以规整成这样一条链。
+
+然后就是简单的贪心问题了。
+
+\problem{Draughts}
+
+\begin{description}
+\item[负责] 邢皓明
+\item[情况] 比赛中通过 - 191min - 1Y
+\end{description}
+
+签到题. 爆搜.
+
+\problem{History course}
+
+\begin{description}
+\item[负责] 邢皓明
+\item[情况] 赛后通过
+\end{description}
+
+先二分答案，变成check是否存在一种方案使得相交的区间的位置间隔不超过$k$的子问题。
+
+这个子问题是可以贪心的，具体思路：每次选择能选的区间中右端点尽量靠左的区间，判断是否能选可以动态维护对于每个还没加入的区间，至少要在哪个位置前加入，笔者用了两棵线段树实现，总复杂度$O(n * log^2n)$。
+
+\problem{Chain \& Co}
+
+\begin{description}
+\item[负责] 邢皓明
+\item[情况] 赛后通过
+\end{description}
+
+可以按方向将正方形分成X Y Z三个集合，因为平行的正方形都是separable的，所以答案肯定是$X + \{Y,Z\}$或者Y + $\{Z,X\}$或者Z + $\{X,Y\}$。
+
+判断合法可以做一个转化，两个长方形是inseparable的当且仅当其中一个的最高点在另一个长方形所张成的一个$2r \times r \times r$的立方体中，一个点在所有立方体等价于在所有立方体的交中，所以求出每对集合与集合的判断，求出其中一个集合中所有立方体的交，就能够对另一个集合中的每个正方形实现$O(1)$判断了，复杂度$O(n)$。
+
+
+\problem{Crane}
+
+\begin{description}
+\item[负责] 邢皓明
+\item[情况] 比赛中通过 - 104min - 1Y
+\end{description}
+
+这个可以每次把某个值移到最终位置, 只需要 $log N$ 步以内. 然后splay维护。 
+
+\problem{Captain Obvious and the Rabbit-Man}
+
+\begin{description}
+\item[负责] 杨越
+\item[情况] 赛后通过
+\end{description}
+
+把$p_n$ 看成通项, 那么$Fib_k$就是特征根. 于是特征多项式就是 $\Pi (x-Fib_k)$
+
+之后递推就好了
+
+\problem{Digraphs}
+
+\begin{description}
+\item[负责] 邢皓明
+\item[情况] 比赛中通过 - 141 - 2Y
+\end{description}
+
+把禁止的二元组看成在完全图删去一些边，找一条最长路，令最长路经过的点为$S[L]$,则可以构造出一个规模为$\frac{L+1}{2}$的矩阵，令$A[i][j] = S[i + j - 1]$即可，可以证明这是答案的上界。
+
+\problem{Bus}
+
+\begin{description}
+\item[负责] 杨越
+\item[情况] 比赛中通过 - 6min - 1Y
+\end{description}
+
+答案是$2^n-1$
+
+\section{总结}
+
+打的真是累哭了. 少一个人两个人基本没有讨论的时间. 比如A题, 如果两个人讨论讨论一定能做出来. 想题的时间也不够. 
+
+\end{document}
+
