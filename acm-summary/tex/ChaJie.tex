@@ -1,0 +1,178 @@
+\documentclass[a4paper, 11pt, nofonts, nocap, fancyhdr]{ctexart}
+\usepackage{graphicx} 
+
+\usepackage[margin=60pt]{geometry}
+
+\setCJKmainfont[BoldFont={FZHei-B01}, ItalicFont={FZKai-Z03}]{FZShuSong-Z01}
+\setCJKmonofont{FZShuSong-Z01}
+
+\CTEXoptions[today=small]
+
+\pagestyle{plain}
+
+
+
+% \fancyhead[L]{\small{team name}}
+% \fancyhead[C]{\small{FSTC 2014 - 05 - 训练报告}}
+% \fancyhead[R]{\small{2014年8月2日}}
+
+\renewcommand{\thesubsubsection}{Problem \Alph{subsubsection}.}
+\newcommand{\problem}[1]{\subsubsection{#1}}
+
+\title{Fudan ACM-ICPC Summer Training Camp 2014\\第6场训练报告}
+\author{Team 1}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{概况}
+
+本场训练，我们队伍在比赛中完成了7道题目，比赛后完成了3道题目，共完成10道题目。已经完成本场训练所有题目。
+
+
+\section{训练过程}
+
+(YY 视角)
+
+延续了多校每次开场拿不到题. 作为lym不在的第一场, 真是累炸.
+
+拿到题之后yy看了C, xhm看了A. 大叫一声傻逼题, 就去写了. 然后yy继续想C, 发现会做了. xhm 15min 1Y A
+
+之后, 我本来想上去写C, 结果xhm发现J也是傻逼题, 顺手一发.第一次答案没有取模, 37min 2Y J. 
+
+我上去写C, 大概是20多分钟写完, 然后样例过不掉, 叫xhm上去写E, 我print代码之后想细节. 5分钟后我继续上去写C, 79min 1Y C. 拿了一血好开心. 
+
+xhm继续写E, 我开始思考B. xhm写完E之后WA了, 于是教了我G的做法之后, 我开始写G. xhm改了几个错误之后又交了一发, 但是忘记删freopen. 99min E 3Y. 
+
+G写的挺顺利, 125min 1Y G. 这时我们有点没题写了, xhm表示java调I的话非常繁琐, 于是我们决定先用c++写对, 然后由我去改java. 由于忘记换语言, CE了一发, 195min I 2Y.
+
+之后我提出了一个B的做法, 实在是有点坑爹, 但是因为时间不多, 少了一个人, 所以很难有深入思考题目的时间, 于是决定先写. 而后xhm会写F了. 我B写完之后wa了, 改了手贱之后交还是wa. 
+
+于是开始思考做法的问题. 让xhm先写F. 过了10分钟我想出了正确的做法, 于是等xhm写完F之后, 让他先下来调样例. 做法对了之后B题一发过 274min B 3Y. 
+
+剩下时间一起搞F. 交了之后wa. 最后5分钟xhm发现了trick, 但是由于时间太紧迫, 改了之后有手贱错误, 和昨天lym干的事情一模一样.
+
+\section{解题报告}
+
+\problem{Invension}
+
+\begin{description}
+\item[负责] 邢皓明
+\item[情况] 比赛时通过 - 15min - 1Y
+	
+\end{description}
+
+答案等于max(0,逆序对个数-k)
+
+\problem{Paths on tree}
+
+\begin{description}
+\item[负责] 杨越
+\item[情况] 比赛时通过 - 274min - 3Y
+	
+\end{description}
+
+直接dp。 用dfs序维护值加速转移。
+
+\problem{Least Common Multiple}
+	
+
+\begin{description}
+\item[负责] 杨越
+\item[情况] 比赛时通过 - 79min - 1Y
+\end{description}
+
+将数列按照$a_i$排序. 然后考虑当前第$i$个作为$LCM$, 那么要计数有多少个 $\leq a_i and \leq  b_i$. 还有一个需要线段树维护, 打$\times 2$的标记. 还需要求一段的区间和.
+
+\problem{Linear recusive sequence}
+
+\begin{description}
+\item[负责] 杨越
+\item[情况] 比赛后通过
+\end{description}
+
+先弄清平方怎么弄. 叉姐论文有.
+$G(x) = x^Q - B\times x^{Q-P} - A$
+设$F(x) = P(x)\times G(x) + r(x)$
+对多项式快速幂, 每次对于$G(x)$取余. 因为$G(M) = 0$, 所以$F(M) = r(M)$.
+
+\problem{Parenthese sequence}
+
+\begin{description}
+\item[负责] 邢皓明
+\item[情况] 比赛时通过 - 98min - 3Y
+	
+\end{description}
+
+令$f[i][j]$为做完前i个括号，有j个左括号未匹配时的可行性，会发现对于每个i，可行的j是一个区间，于是维护即可，判断方案不唯一可以枚举某一位的不同决策，看最后是否可行。
+
+
+\problem{Count on path}
+
+\begin{description}
+\item[负责] 邢皓明
+\item[情况] 赛后通过
+	
+\end{description}
+
+考虑一条主链情况, 要么覆盖这条主链, 那么答案是最小的岔路. 否则是主链的某一段最小值. 于是维护一下.
+
+\problem{Permutation}
+
+\begin{description}
+\item[负责] 杨越
+\item[情况] 比赛时通过 - 125min - 1Y
+\end{description}
+
+对于每个连通分量进行dp. 由于边数小于21, 所以点数不超过21. 状压dp. 最后乘上多重集排列方案数.
+
+\problem{Query on subtree}
+
+\begin{description}
+\item[负责] 邢皓明
+\item[情况] 赛后通过
+	
+\end{description}
+
+对于边进行分治, 然后拿数据结构维护就可以了. 应该算是树分治入门题.
+
+\problem{Exclusive or}
+	
+
+\begin{description}
+\item[负责] 邢皓明
+\item[情况] 赛后通过
+	
+\end{description}
+
+考虑每位是1的情况下, 有多少方案使得当前第i位是1, 这个数位dp一下就好了.
+
+\problem{Matrix Multiplion}
+	
+
+\begin{description}
+\item[负责] 邢皓明
+\item[情况] 比赛时通过 - 37min - 2Y
+	
+\end{description}
+
+压二进制后矩阵乘法.
+
+\section{总结}
+
+	两人打比赛真是累炸, 让我这种嘴巴选手如何是好. 
+	
+	两人打比赛感觉前期比较辛苦. 需要思考的题目非常多, 往往不知道从哪题先开始.
+	
+	还好叉姐的题目真良心, 没有什么较长难懂的题面. 所以我们两人很快就把题目全部看完了. 
+	
+	然后两人比赛的话, 没有办法深入思考一道题, 导致了今天B的失误. xhm今天特别紧张的感觉.
+	
+	这次的机子倒是一直有用着, 没有出现空机器的情况. 
+	
+	今天出现了沟通不畅的情况, 我最后想出B的想法, 是xhm早就想出的, 但是他没有和我说, 只是过了脑海之后觉得很复杂没有细想. 其实只要深入思考的话发现是很容易实现的. 
+
+\end{document}
+

@@ -1,0 +1,160 @@
+\documentclass[a4paper, 11pt, nofonts, nocap, fancyhdr]{ctexart}
+\usepackage{graphicx} 
+
+\usepackage[margin=60pt]{geometry}
+
+\setCJKmainfont[BoldFont={FZHei-B01}, ItalicFont={FZKai-Z03}]{FZShuSong-Z01}
+\setCJKmonofont{FZShuSong-Z01}
+
+\CTEXoptions[today=small]
+
+\pagestyle{plain}
+
+
+% \fancyhead[L]{\small{team name}}
+% \fancyhead[C]{\small{FSTC 2014 - 05 - 训练报告}}
+% \fancyhead[R]{\small{2014年8月2日}}
+
+\renewcommand{\thesubsubsection}{Problem \Alph{subsubsection}.}
+\newcommand{\problem}[1]{\subsubsection{#1}}
+
+\title{Fudan ACM-ICPC Summer Training Camp 2014\\第5场训练报告}
+\author{Team 1}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{概况}
+
+本场训练，我们队伍在比赛中完成了8道题目，比赛后完成了2道题目，共完成10道题目。已经完成本场训练所有题目。
+
+\section{训练过程}
+
+(xhm视角)
+
+比赛开始几分钟后才拿到题目，我从前往后看题，lym从后往前看题，yy配环境。过了一会看到C题是裸矩阵，遂上去写，提交RE，苦苦查错时纳指导表示数据配错了才导致RE的，rejudge AC, 20min C题通过(1Y)。
+
+换lym写F，一道并查集的题目，lym写完感觉有点问题，print之后下来思考，yy上去写A题，几分钟后lym改完F题，提交AC，47min F题通过(1Y)。
+
+yy写完了A题，1Y，50min A题通过(1Y)。lym上去写B题，在花了10分钟输入完巨大的样例发现没问题之后提交AC，86min B通过(1Y)。
+
+我上去写D题，提交1WA，迅速修改eps后AC，109min D通过(2Y)。
+
+然后我继续写I题，一个二分+单调性dp的题目，写完调过样例AC，139min I通过(1Y)。
+
+yuege上去写一个裸的三维几何题，G题，写完TLE，发现是复杂度写傻了，改完AC，198min G通过(2Y)。
+
+此时剩下三个题目都已理论AC，J恶心，H傻傻想不清楚，于是我选择了相对难写但是写了肯定能过的E题，花了1小时才写完，写完瞬间过样例！提交wa，遂火速打印换lym写H。下机仔细看了看发现建图的时候有点小问题，连了几条20亿的边权，一加就爆了，修改几次后AC，290min E题通过(4Y)。然后紧急调H题，最后3分钟我找到了一个trick，lym火速改，可惜有一个地方\&\&打成||了..
+
+
+\section{解题报告}
+
+\problem{A. Ginkgo Numbers}
+
+\begin{description}
+\item[负责] 杨越
+\item[情况] 比赛时通过 - 50min - 1Y
+\end{description}
+
+拿题目所给两个条件写写即可.
+
+\problem{B. Stylish}
+
+\begin{description}
+\item[负责] 刘炎明
+\item[情况] 比赛时通过 - 86min - 1Y
+\end{description}
+
+题目怎么说怎么写,
+
+\problem{C. One-Dimensional Cellular Automaton}
+
+\begin{description}
+\item[负责] 邢皓明
+\item[情况] 比赛时通过 - 20min - 1Y
+\end{description}
+
+裸矩阵乘法。
+
+\problem{D. Find the Outlier}
+
+\begin{description}
+\item[负责] 邢皓明
+\item[情况] 比赛时通过 - 109min - 2Y
+\end{description}
+
+枚举哪个是错的，看剩下的$d+2$个能不能用d次多项式拟合，由于d很小直接高斯消元插值即可。
+注意$eps$，$1e-4$是wa，改成$1e-3$就AC了。
+
+\problem{E. Sliding Block Puzzle}
+
+\begin{description}
+\item[负责] 邢皓明
+\item[情况] 比赛时通过 - 290min - 4Y
+\end{description}
+
+状态：国王在什么位置，两个空格在国王旁边的哪个方位。
+状态只有$4 \times n \times n\leq10000$个。
+转移注意到搬箱子和搬空格是等价的，相当于两个空格移动到所需位置，用最短路预处理转移，总复杂度$O(n^4 + SPFA(N^2,N^2))$。
+
+\problem{F. Never Wait for Weights}
+
+\begin{description}
+\item[负责] 刘炎明
+\item[情况] 比赛时通过 - 47min - 1Y
+\end{description}
+
+边权并查集，除了father\[\]数组之外，额外记录一个offest\[\]表示这个点到父亲的边权，路径压缩时顺便维护即可，这样就能支持查询了。
+
+\problem{G. Let There Be Light}
+
+\begin{description}
+\item[负责] 杨越
+\item[情况] 比赛时通过 - 198min - 2Y
+\end{description}
+
+枚举光源的集合, 然后算哪些需要被删除.
+简单的计算几何.
+注意预处理，不然30s时限也保不住。
+
+\problem{H. Company Organization}
+
+\begin{description}
+\item[负责] 邢皓明、刘炎明、杨越
+\item[情况] 赛后通过
+\end{description}
+
+先二分答案.
+对于a包含于b的关系, 建一条b->a的边.
+a=b可以看做一条双向边.
+操作三用来判断是否有冲突. 如果a b处于一个强联通分量里, 那么操作三是不合法的.
+之后对于所有交集为空的操作, a, b. 记A集合为从a出发能dfs到的点, B集合为从b出发能dfs到的点. A 交 B 必然都为空集. 对于属于A不属于B的集合记为C, 属于B不属于A的集合记为D. 那么暴力枚举C, D的元素, 他们两两之间的交集一定为空. 
+最后用操作5直接判断是否可行.
+注意空集不等于空集.
+
+\problem{I. Beautiful Spacing}
+
+\begin{description}
+\item[负责] 邢皓明
+\item[情况] 比赛时通过 - 139min - 1Y
+\end{description}
+
+先二分答案, 然后直接dp, 决策区间存在单调性. 
+
+\problem{J. Cubic Colonies}
+
+\begin{description}
+\item[负责] 杨越
+\item[情况] 赛后通过
+\end{description}
+
+考虑一个$1\times 12$的格子, 对于每个点向每个点连边, 对于每条边存在交点. 一定是一些等比分点. 于是对于每个合法的面, 处理出每条边的$2..9$等比分点, 然后一个面之间的点连边. 最后跑一次最短路即可。
+
+\section{总结}
+
+最后8题，本来能9题的。
+鄙队有无法决杀光环。
+
+\end{document}
