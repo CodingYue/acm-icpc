@@ -1,0 +1,177 @@
+\documentclass[a4paper, 11pt, nofonts, nocap, fancyhdr]{ctexart}
+\usepackage{graphicx} 
+
+\usepackage[margin=60pt]{geometry}
+
+\setCJKmainfont[BoldFont={FZHei-B01}, ItalicFont={FZKai-Z03}]{FZShuSong-Z01}
+\setCJKmonofont{FZShuSong-Z01}
+
+\CTEXoptions[today=small]
+
+\pagestyle{plain}
+
+
+
+% \fancyhead[L]{\small{team name}}
+% \fancyhead[C]{\small{FSTC 2014 - 05 - 训练报告}}
+% \fancyhead[R]{\small{2014年8月2日}}
+
+\renewcommand{\thesubsubsection}{Problem \Alph{subsubsection}.}
+\newcommand{\problem}[1]{\subsubsection{#1}}
+
+\title{Fudan ACM-ICPC Summer Training Camp 2014\\第7场训练报告}
+\author{Team 1}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{概况}
+
+本场训练，我们队伍在比赛中完成了6道题目，比赛后完成了N道题目，共完成N道题目。已经完成本场训练至少完成N题的要求（或，已经完成本场训练所有题目）。
+
+\section{训练过程}
+
+比赛开始时非常坑爹，题目过了十几分钟才打印好，纳指导急中生智让大家用自己的电子设备看题。。于是比赛乱哄哄地开始了。我从前往后看题，yy先上去配环境。
+
+这一场比赛题面很长，花了几分钟读懂了A的题意，留意到跟hdu上数据范围不太一致，纳指导表示以oj上描述为准。
+
+只有一个人看题效率太低了，于是刷了刷board，发现大家在交E题和G题，遂开始看E。
+
+E好像是个贪心，按黑白染色种树应该是最优的，不太确定做法正确性，但已经有两位数的AC了，又看了一下G题感觉很水，扔给yy之后上机写E。\
+
+写完E之后wa了。。看到通过/提交的数字是70+/120+，感觉很不高兴，盯着代码看了好久发现n=m=1的时候会错。。sad，遂2Y。
+
+[21min E 2Y]
+
+通过E后yy表示G题应该就是杨辉三角，但是是正负交替的，需要高精度，确认了下做法没啥问题就让他拍java了，过样例1Y，期间交错题结果给A贡献了一次错误提交。
+
+[41min G 1Y]
+
+继续刷board，发现C和J陆续有人过，C是一个很像数学题的题目，想起一道类似的题目，不过是整数的，是一个单调栈+可并堆的做法，想了想好像可以套用在这道题上，还不需要开堆，说服yy之后我上去写C，yy去看其他题目。（为什么不做J呢。。因为正常节奏J早就被lym秒掉了。。sad），一会C样例过了，提交AC。
+
+[93min C 1Y]
+
+yy看了一坨题之后表示还是J好做，于是上去写J，我思考A的细节准备yy下来后立刻上去写。
+
+J题写完过了样例，打印下来代码看逻辑，我先上去写A。看了一会yy表示代码没有问题，提交AC。
+
+[123min J 1Y]
+
+A写完样例死活算不对，手算跟程序输出一样，board上也没有新的题目有人通过，十几分钟后才留意到输入是从0开始编号的，于是终于算对了样例，提交AC。
+
+[162min A 2Y(第一发是G题交错题)]
+
+然后我和yy各选了一个坑跳进去，我去写D，他写F。
+
+D题写完TLE，加了个剪枝WA，换yy写F。
+
+D题改正了几个手贱之后还是WA，F题写完提交TLE。
+
+我开了一下脑洞，猜测D题输入数据中选手喜欢/讨厌自己的情况，而我的程序对于这种情况会把边权算错，改了一下提交发现过了，好无聊。。
+
+[274min D 5Y]
+
+F题优化了好几个做法还是TLE，试了试极限数据发现本地要跑7.9秒，而时限7秒，于是我们试图二分出5组数据中的某一组的答案然后骗过去。。没有来得及二分出来比赛就结束了。
+
+最后6题，凭借罚时优势排到了rank3，感觉这场真是恶心，把大家都恶心死了。 
+
+\section{解题报告}
+
+\problem{Map}
+
+\begin{description}
+\item[负责] 邢皓明
+\item[情况] 比赛中通过 - 182min - 2Y
+\end{description}
+
+
+
+\problem{Hello, Your Package!}
+
+\begin{description}
+\item[负责] 邢皓明
+\item[情况] 比赛后通过
+\end{description}
+
+
+
+\problem{Room and Moor}
+
+\begin{description}
+\item[负责] 邢皓明
+\item[情况] 比赛中通过 - 103min - 1Y
+\end{description}
+
+
+
+\problem{Football Manager}
+
+\begin{description}
+\item[负责] 邢皓明
+\item[情况] 比赛中通过 - 274min - 4Y
+\end{description}
+
+
+
+\problem{Apple Tree}
+
+\begin{description}
+\item[负责] 邢皓明
+\item[情况] 比赛中通过 - 27min - 2Y
+\end{description}
+
+
+
+\problem{Robbery Plan}
+
+\begin{description}
+\item[负责] 邢皓明
+\item[情况] 比赛后通过
+\end{description}
+
+
+
+\problem{Series 1}
+
+\begin{description}
+\item[负责] 杨越
+\item[情况] 比赛中通过 - 41min - 1Y
+\end{description}
+
+推一推之后发现是组合数, 然后用java写就行了, 用 $O(N)$来边循环边球组合数.
+
+\problem{Series 2}
+
+\begin{description}
+\item[负责] 杨越
+\item[情况] 比赛后通过
+\end{description}
+
+只会做$log(N)$步, 所以暴力就好了.
+
+\problem{Another Letter Tree}
+
+\begin{description}
+\item[负责] 邢皓明
+\item[情况] 比赛后通过
+\end{description}
+
+
+
+\problem{Fighting the Landlords}
+
+\begin{description}
+\item[负责] 杨越
+\item[情况] 比赛中通过 - 123min - 1Y
+\end{description}
+
+模拟题, 题说什么写什么. 注意一下如果可以直接跑完就是赢. 还有炸弹的比较. 如果你没炸弹又不能走完是输的.
+
+\section{总结}
+
+好恶心的题啊. 深切的感受到没法想题的痛苦. $1 + 1 + 1 > 3$, 但是 $1+1 = 2$. 
+
+\end{document}
+
