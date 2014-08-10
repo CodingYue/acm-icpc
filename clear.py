@@ -14,7 +14,7 @@ def dfs(curdir, remove = False) :
 			else:
 				print 1, name
 			continue
-		if re.match(r'^(?:.*?\.(?:cpp|py|tex|java|md|gitignore))|LICENSE$', name) == None and os.path.isdir(fullname) == False :
+		if re.match(r'^(?:.*?\.(?:cpp|py|tex|java|md|gitignore|sh|pdf|png|jpg))|LICENSE$', name) == None and os.path.isdir(fullname) == False :
 			if remove :
 				os.system('rm -rf %s' % fullname)
 				print remove
