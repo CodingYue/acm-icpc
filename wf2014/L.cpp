@@ -35,7 +35,7 @@ typedef pair<LL,int>PLI;
 #define PB push_back
 
 const int MaxN = 100005;
-const double eps = 1e-13;
+const double eps = 1e-15;
 const double DINF = 1e100;
 const int INF = 1000000006;
 const LL LINF = 1000000000000000005ll;
@@ -192,7 +192,7 @@ bool parallel(Segment s1, Segment s2) {
 }
 int main()
 {
-//	freopen("in","r",stdin);
+	//freopen("in","r",stdin);
 
 	scanf("%d", &n);
 	Point source, sink;
