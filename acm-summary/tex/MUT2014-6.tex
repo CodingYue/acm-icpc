@@ -12,7 +12,7 @@
 
 
 
-% \fancyhead[L]{\small{team name}}
+% \fancyhead[L]{\small{team 1}}
 % \fancyhead[C]{\small{FSTC 2014 - 05 - 训练报告}}
 % \fancyhead[R]{\small{2014年8月2日}}
 
@@ -29,7 +29,7 @@
 
 \section{概况}
 
-本场训练，我们队伍在比赛中完成了6道题目，比赛后完成了N道题目，共完成N道题目。已经完成本场训练至少完成N题的要求（或，已经完成本场训练所有题目）。
+本场训练，我们队伍在比赛中完成了6道题目，比赛后完成了4道题目，共完成10道题目。已经完成本场训练所有题目。
 
 \section{训练过程}
 
@@ -86,7 +86,7 @@ F题优化了好几个做法还是TLE，试了试极限数据发现本地要跑7
 \item[情况] 比赛中通过 - 182min - 2Y
 \end{description}
 
-
+注意到给定图是不超过$10$条链构成，我们可以枚举每个位置然后$2^{10}$计算出所有链上这个位置的边对答案的贡献。
 
 \problem{Hello, Your Package!}
 
@@ -95,7 +95,7 @@ F题优化了好几个做法还是TLE，试了试极限数据发现本地要跑7
 \item[情况] 比赛后通过
 \end{description}
 
-
+预处理road与road的交点，road到package的最近点。。作为关键点，然后求出两两间的最短路，然后利用最短路的值算出搭车的最优方案，然后问题变成了最短哈密顿路径问题，再做一次$O(n \times 2^n)$的状压dp就可以了。
 
 \problem{Room and Moor}
 
@@ -104,7 +104,7 @@ F题优化了好几个做法还是TLE，试了试极限数据发现本地要跑7
 \item[情况] 比赛中通过 - 103min - 1Y
 \end{description}
 
-
+与BOI2004 数字序列类似的做法，维护每一段的最优决策，如果当前段的最优决策比前面段的决策值要小，则与前面的段合并，再求最优决策。。从而用一个类似单调栈的思路求出所有B[i]，于是解决本题。
 
 \problem{Football Manager}
 
@@ -113,7 +113,7 @@ F题优化了好几个做法还是TLE，试了试极限数据发现本地要跑7
 \item[情况] 比赛中通过 - 274min - 4Y
 \end{description}
 
-
+枚举所有$\choose{20}{11}$种人员方案（不在意具体分配），然后用一个$f[a][b][c][d]$的dp就可以了，需要剪枝，一个比较弱但是能AC的剪枝是，如果所有人踢最擅长的位置（不管阵容如何）也无法比当前答案更优，放弃这个解，不进行dp，直接枚举下一组，从而卡过本题。
 
 \problem{Apple Tree}
 
@@ -122,7 +122,7 @@ F题优化了好几个做法还是TLE，试了试极限数据发现本地要跑7
 \item[情况] 比赛中通过 - 27min - 2Y
 \end{description}
 
-
+$(n=m=1)$时答案为$1$，否则在所有$i+j$是偶数的$(i,j)$施肥即可。
 
 \problem{Robbery Plan}
 
@@ -131,7 +131,10 @@ F题优化了好几个做法还是TLE，试了试极限数据发现本地要跑7
 \item[情况] 比赛后通过
 \end{description}
 
-
+首先有$(x / a) mod b = (x mod (a \times b) / a)$ mod b
+所以对于每个p求出$f[p,d] mod ((p + 1) \times M)$的值即可。
+注意到$f[p,d] = \sum \choose{p - 1}{k} \times f[1, d - k \times e]$
+预处理组合数，对每个模做一下就可以求出best数组，然后就是简单的背包了。
 
 \problem{Series 1}
 
@@ -140,7 +143,7 @@ F题优化了好几个做法还是TLE，试了试极限数据发现本地要跑7
 \item[情况] 比赛中通过 - 41min - 1Y
 \end{description}
 
-推一推之后发现是组合数, 然后用java写就行了, 用 $O(N)$来边循环边球组合数.
+推一推之后发现是组合数, 然后用java写就行了, 用 $O(N)$来边循环边求组合数.
 
 \problem{Series 2}
 
@@ -158,7 +161,8 @@ F题优化了好几个做法还是TLE，试了试极限数据发现本地要跑7
 \item[情况] 比赛后通过
 \end{description}
 
-
+预处理每个点到根的路径上有多少个子序列是$s[l,r]$，这需要$O(N \times L^2)$的时间。
+询问的时候利用x,y,lca(x,y)的信息容斥一下就可以把答案算出来了。
 
 \problem{Fighting the Landlords}
 
