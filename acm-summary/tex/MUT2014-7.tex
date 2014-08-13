@@ -74,8 +74,11 @@ xhm写完A后, 发现TLE了. 于是换我写D.
 \item[情况] 赛后通过
 \end{description}
 
-注意到答案只跟质因子的次数序列有关，爆搜一下发现本质上只有2958种输入（题目说数据是“几乎”随机的但是有<4000组不是随机的！简直恶意）。
-于是对于每种输入只需要做一遍，dp[i][j]表示以A[i]为根(Ai是n的第i个约数)，树高为j的概率，复杂度为O(H * ΣS(Ai))，H为n的质因子个数，S(x)为x的约数个数。【注意压常数】
+注意到答案只跟质因子的次数序列有关，爆搜一下发现本质上只有$2958$种输入（题目说数据是“几乎”随机的但是有$<4000$组不是随机的！简直恶意）。
+
+于是对于每种输入只需要做一遍，$dp[i][j]$表示以$A_i$为根($A_i$是$n$的第$i$个约数)，树高为j的概率，复杂度为$O(H \times ΣS(Ai))$，$H$为$n$的质因子个数，$S(x)$为$x$的约数个数。
+
+【注意压常数】
 
 跑得有点慢，最终是打表通过的（常数写的小就不用打表）。
 
@@ -86,8 +89,11 @@ xhm写完A后, 发现TLE了. 于是换我写D.
 \item[情况] 赛后通过
 \end{description}
 
-首先对于每个时刻的联通状态，我们只关心每个联通块的大小，于是本质上只有20的整数划分种方案(<700种)
-于是f[i][j]表示现在联通情况是第i种状态，人在j号节点，对于每个i，转移要解一个n元一次方程，复杂度O(S * n^3)，S为状态数(极限数据<700)。【注意压常数】
+首先对于每个时刻的联通状态，我们只关心每个联通块的大小，于是本质上只有20的整数划分种方案($<700$种)
+
+于是$f[i][j]$表示现在联通情况是第$i$种状态，人在$j$号节点，对于每个$i$，转移要解一个$n$元一次方程，复杂度$O(S \times n^3)$，$S$为状态数(极限数据$<700$)。
+
+【注意压常数】
 
 \problem{Lucky Number}
 
@@ -96,9 +102,9 @@ xhm写完A后, 发现TLE了. 于是换我写D.
 \item[情况] 比赛中通过 - 120min - 3Y
 \end{description}
 
-大-小分治，对于结果是3位以上的数的情况，可行的进制<=7000 枚举验证即可。
+大-小分治，对于结果是3位以上的数的情况，可行的进制$\leq 7000$ 枚举验证即可。
 
-否则3^4枚举每位是什么，列一个二次方程a*base^2+b*base+c=n，解出base验证即可。
+否则$3^4$枚举每位是什么，列一个二次方程$a\times base^2+b\times base+c=n$，解出base验证即可。
 
 【注意压常数】
 
@@ -118,6 +124,8 @@ xhm写完A后, 发现TLE了. 于是换我写D.
 \item[情况] 比赛中通过 - 66min - 2Y
 \end{description}
 
+红塔放后面肯定不会更劣
+
 枚举后面放几个红塔，前面dp即可。
 
 \problem{Destroy Transportation system}
@@ -127,9 +135,9 @@ xhm写完A后, 发现TLE了. 于是换我写D.
 \item[情况] 比赛中通过 - 212min - 8Y
 \end{description}
 
-实际上是一个01规划问题，对于一条边(u,v)，如果u划成0，v划成1，答案会加上B+D，如果u是1，v是0，答案会减去D。
+实际上是一个01规划问题，对于一条边$(u,v)$，如果$u$划成$0$，$v$划成$1$，答案会加上$B+D$，如果$u$是$1$，$v$是$0$，答案会减去$D$。
 
-所以可以把D加到点权上(val[u] += D, val[v] -= D)，变成一个最大权闭合子图问题。
+所以可以把$D$加到点权上$(val_u += D, val_v -= D)$，变成一个最大权闭合子图问题。
 
 \problem{Magical Forest}
 
@@ -171,7 +179,23 @@ xhm写完A后, 发现TLE了. 于是换我写D.
 \item[情况] 比赛时通过 - 190min - 1Y
 \end{description}
 
-% your solutions here 
+$\sum \frac{A\times B}{gcd(A,B)}\times\sum\limits_{k|gcd(A,B)} k$
+
+令$sumd_d = \sum\limits_{k|d} k$
+
+考虑$A=N, B=i(i \leq n)$时的答案
+
+$f_N = \sum\limits_{d|N} \sum\limits_{gcd(t, N) = d} t \times \frac{N}{d} \times sumd_d$
+
+化简得 $f_N = \sum\limits_{d|N} sumd_d \times \frac{N}{d} \times sumd_d \times \sum\limits_{gcd(t, N) = d} t$
+
+$f_N = \sum\limits_{d|N} sumd_d \times \frac{N}{d} \times sumd_d \times \sum\limits_{gcd(t, N/d) = 1} t \times d$
+
+其中$\sum\limits_{gcd(t, N) = 1} t = \phi(N)*N/2$ 这是因为若$x$和$N$互质, 那么$N-x$也和$N$互质. 而与$N$互质的一共有$\phi(N)$ 个.
+
+$f_N = \sum\limits_{d|N} sumd_d \times N \times sumd_d \times \phi(\frac{N}{d}) \times \frac{N}{d}$
+
+所有东西都可以$Nlog(N)$预处理. 然后累加$f_N$作为答案即可
 
 \section{总结}
 

@@ -1,4 +1,4 @@
-documentclass[a4paper, 11pt, nofonts, nocap, fancyhdr]{ctexart}
+\documentclass[a4paper, 11pt, nofonts, nocap, fancyhdr]{ctexart}
 \usepackage{graphicx} 
 
 \usepackage[margin=60pt]{geometry}
@@ -39,7 +39,9 @@ xhm写到一半, 我觉得I更为简单, 于是让xhm print代码我上去写I. 
 
 [38min - B - 4Y]
 
-我继续写I. 然后[42min - J - 3Y]
+我继续写I. 
+
+[42min - J - 3Y]
 
 之后写E. 然后写完又wa. 换xhm写F. 然后E一直wawawa, Fxhm写完了也wawawa. 于是我们决定先放一放E. 继续看别的题. D题我想了个$N^2log(N)$ 的做法, 觉得过不了. 于是先写G. 让xhm对拍F.
 
@@ -76,7 +78,7 @@ xhm写到一半, 我觉得I更为简单, 于是让xhm print代码我上去写I. 
 
 分段考虑, 然后如果知道面积, 那么对于上下两部分套用台体的公式, 直接算出来.
 
-在中间的部分, 需要分割成两个锥体. 那么答案是$\frac{(2*area_{down}+area_{up})\times h}{3}$
+在中间的部分, 需要分割成两个锥体. 那么答案是$\frac{(2\times area_{down}+area_{up})\times h}{3}$
 
 \problem{Buy the Pets}
 
@@ -103,8 +105,9 @@ xhm写到一半, 我觉得I更为简单, 于是让xhm print代码我上去写I. 
 \item[情况] 比赛中通过 - 221min(3Y)
 \end{description}
 
-把数组reverse一下，相当于是选择一个i,j,把A[1..i]加一个数，A[i+1..j]加一个数，使得最终1~N的数尽量多。
-f[i][j]表示前i个数，加上1 - A[j]之后在[1..n]区间的有多少个数,求出f[][]数组时候用f[i][j] + (max{f[p][x]} - f[p][j])(1<=x<=n) 更新答案即可，复杂度O(n^2)
+把数组reverse一下，相当于是选择一个$i$,$j$,把$A[1 \dots i]$加一个数，$A[i+1 \dots j]$加一个数，使得最终$1~N$的数尽量多。
+
+$f[i][j]$表示前i个数，加上$1 - A[j]$之后在$[1 \dots n]$区间的有多少个数,求出$f[][]$数组时候用$f[i][j] + (max{f[p][x]} - f[p][j])(1\leq x \leq n)$ 更新答案即可，复杂度O$(n^2)$
 
 \problem{Eternal Reality}
 
@@ -122,7 +125,9 @@ $F_i$ 表示第$i$天的最大值. $F_i = F_{i-X-Y} + calc(i-X-Y+1, i)$
 \item[情况] 比赛中通过 - 168min(4Y)
 \end{description}
 
-采用大-小分治，取S=[sqrt(2n)]，对于度数>S的点（称为大点）暴力维护邻接边的正权和、负权和，对于度数<=S的点（称为小点）每次修改暴力修改每一条邻接边。大点之间的边（S^2条）暴力维护。
+采用大-小分治，取$S=\lfloor \sqrt{2\times n} \rfloor$，
+
+对于度数$>S$的点（称为大点）暴力维护邻接边的正权和、负权和，对于度数$\leq S$的点（称为小点）每次修改暴力修改每一条邻接边。大点之间的边$(S^2)$条暴力维护
 
 \problem{The Lambs}
 
