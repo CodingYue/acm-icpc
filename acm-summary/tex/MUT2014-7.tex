@@ -127,39 +127,51 @@ xhm写完A后, 发现TLE了. 于是换我写D.
 \item[情况] 比赛中通过 - 212min - 8Y
 \end{description}
 
-实际上是一个01规划问题，对于一条边(u,v)，如果u划成0，总权值+D，如果v划成1，总权值-D
+实际上是一个01规划问题，对于一条边(u,v)，如果u划成0，v划成1，答案会加上B+D，如果u是1，v是0，答案会减去D。
 
-\problem{Tragedy Organ}
+所以可以把D加到点权上(val[u] += D, val[v] -= D)，变成一个最大权闭合子图问题。
 
-\begin{description}
-\item[负责] N/A
-\item[情况] 尚未通过
-\end{description}
-
-啥破题嘛!!
-
-\problem{Salary Increasing}
-
-\begin{description}
-\item[负责] 杨越
-\item[情况] 比赛中通过 - 42min(3Y)
-\end{description}
-
-由于区间不会相交, 开个map暴力就好.
-
-\problem{Spherical Surface}
+\problem{Magical Forest}
 
 \begin{description}
 \item[负责] 邢皓明
-\item[情况] 比赛后通过
+\item[情况] 比赛时通过 - 30min - 1Y
 \end{description}
 
-\problem{Build the Park I}
+老梗，维护第i行现在是原来的第几行，第i列现在是原来的第几列就能回答询问了。
+
+\problem{Game on S♂play}
+
+\begin{description}
+\item[负责] 邢皓明
+\item[情况] 赛后通过
+\end{description}
+
+暴力修改+维护dfs序。
+
+使用splay/treap会TLE，注意到旋转不会改变中序遍历的dfs序，所以可以静态维护区间积。
+
+用线段树就能稳稳通过了。
+
+\problem{K-th good string}
+
+\begin{description}
+\item[负责] 刘炎明
+\item[情况] 赛后通过
+\end{description}
+
+写写写写写写写写写写写写写写写写写写写写题。
+
+后缀数组，倍增，lcp，动态第k大，每步都是显然的，加起来就成了防ak题了。
+
+\problem{FSF’s game}
 
 \begin{description}
 \item[负责] 杨越
-\item[情况] 比赛后通过
+\item[情况] 比赛时通过 - 190min - 1Y
 \end{description}
+
+% your solutions here 
 
 \section{总结}
 
