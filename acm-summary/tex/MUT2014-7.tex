@@ -65,6 +65,101 @@ xhm写完A后, 发现TLE了. 于是换我写D.
 
 比赛结束.
 
+\section{解题报告}
+
+\problem{Prime Tree}
+
+\begin{description}
+\item[负责] 邢皓明
+\item[情况] 赛后通过
+\end{description}
+
+注意到答案只跟质因子的次数序列有关，爆搜一下发现本质上只有2958种输入（题目说数据是“几乎”随机的但是有<4000组不是随机的！简直恶意）。
+于是对于每种输入只需要做一遍，dp[i][j]表示以A[i]为根(Ai是n的第i个约数)，树高为j的概率，复杂度为O(H * ΣS(Ai))，H为n的质因子个数，S(x)为x的约数个数。【注意压常数】
+
+跑得有点慢，最终是打表通过的（常数写的小就不用打表）。
+
+\problem{Rainbow Island}
+
+\begin{description}
+\item[负责] 邢皓明
+\item[情况] 赛后通过
+\end{description}
+
+首先对于每个时刻的联通状态，我们只关心每个联通块的大小，于是本质上只有20的整数划分种方案(<700种)
+于是f[i][j]表示现在联通情况是第i种状态，人在j号节点，对于每个i，转移要解一个n元一次方程，复杂度O(S * n^3)，S为状态数(极限数据<700)。【注意压常数】
+
+\problem{Lucky Number}
+
+\begin{description}
+\item[负责] 杨越
+\item[情况] 比赛中通过 - 120min - 3Y
+\end{description}
+
+大-小分治，对于结果是3位以上的数的情况，可行的进制<=7000 枚举验证即可。
+
+否则3^4枚举每位是什么，列一个二次方程a*base^2+b*base+c=n，解出base验证即可。
+
+【注意压常数】
+
+\problem{Seeing People}
+
+\begin{description}
+\item[负责] 杨越
+\item[情况] 比赛中通过 - 270min - 1Y
+\end{description}
+
+简单统计问题，two-pointer扫描即可，终于不用压常数啦好开心
+
+\problem{Stupid Tower Defense}
+
+\begin{description}
+\item[负责] 杨越
+\item[情况] 比赛中通过 - 66min - 2Y
+\end{description}
+
+枚举后面放几个红塔，前面dp即可。
+
+\problem{Destroy Transportation system}
+
+\begin{description}
+\item[负责] 刘炎明
+\item[情况] 比赛中通过 - 212min - 8Y
+\end{description}
+
+实际上是一个01规划问题，对于一条边(u,v)，如果u划成1，
+
+\problem{Tragedy Organ}
+
+\begin{description}
+\item[负责] N/A
+\item[情况] 尚未通过
+\end{description}
+
+啥破题嘛!!
+
+\problem{Salary Increasing}
+
+\begin{description}
+\item[负责] 杨越
+\item[情况] 比赛中通过 - 42min(3Y)
+\end{description}
+
+由于区间不会相交, 开个map暴力就好.
+
+\problem{Spherical Surface}
+
+\begin{description}
+\item[负责] 邢皓明
+\item[情况] 比赛后通过
+\end{description}
+
+\problem{Build the Park I}
+
+\begin{description}
+\item[负责] 杨越
+\item[情况] 比赛后通过
+\end{description}
 
 \section{总结}
 
