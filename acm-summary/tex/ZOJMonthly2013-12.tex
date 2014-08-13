@@ -81,7 +81,7 @@ xhm写到一半, 我觉得I更为简单, 于是让xhm print代码我上去写I. 
 \item[情况] 比赛中通过 - 38min(4Y)
 \end{description}
 
-我是B题的报告。
+状压，f[S]为前|{S}|/2个人，拿走的宠物集合为S的方案数，转移暴力枚举哪只猫哪条狗。注意压常数。
 
 \problem{Cut the Cake}
 
@@ -98,6 +98,9 @@ xhm写到一半, 我觉得I更为简单, 于是让xhm print代码我上去写I. 
 \item[负责] 邢皓明
 \item[情况] 比赛中通过 - 221min(3Y)
 \end{description}
+
+把数组reverse一下，相当于是选择一个i,j,把A[1..i]加一个数，A[i+1..j]加一个数，使得最终1~N的数尽量多。
+f[i][j]表示前i个数，加上1 - A[j]之后在
 
 \problem{Eternal Reality}
 
