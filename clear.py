@@ -29,4 +29,4 @@ sure = raw_input('Sure to remove files mentioned above? yes or no : ')
 remove = False
 if sure == 'yes' :
 	remove = True
-dfs(os.getcwd(), True)
+dfs(os.getcwd(), remove)
