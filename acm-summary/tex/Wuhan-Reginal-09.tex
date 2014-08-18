@@ -12,7 +12,7 @@
 
 
 
-% \fancyhead[L]{\small{team name}}
+% \fancyhead[L]{\small{team 1}}
 % \fancyhead[C]{\small{FSTC 2014 - 05 - 训练报告}}
 % \fancyhead[R]{\small{2014年8月2日}}
 
@@ -74,6 +74,7 @@ xhm上去写B. 我准备写J. xhm B题写完wa. xhm自作聪明多判了条件. 
 \item[情况] 比赛后通过
 \end{description}
 
+求每个程序的最早执行时间可以用Bellman-Ford迭代，输出方案的话可以把每个点缀在最晚完成的前趋上，得到一棵树，然后输出这棵树的括号表示就是方案了。
 
 \problem{Box Relations}
 
@@ -82,7 +83,7 @@ xhm上去写B. 我准备写J. xhm B题写完wa. xhm自作聪明多判了条件. 
 \item[情况] 比赛中通过 - 163min - 3Y
 \end{description}
 
-我是B题的报告。
+首先xyz是独立的，可以转化成构造区间的问题，
 
 \problem{Crossing Rivers}
 
@@ -125,6 +126,7 @@ xhm上去写B. 我准备写J. xhm B题写完wa. xhm自作聪明多判了条件. 
 \item[情况] 比赛中通过 - 83min - 1Y
 \end{description}
 
+背包问题，直接dp即可。
 
 \problem{Help Bubu}
 
@@ -133,22 +135,22 @@ xhm上去写B. 我准备写J. xhm B题写完wa. xhm自作聪明多判了条件. 
 \item[情况] 比赛中通过 - 103min - 1Y
 \end{description}
 
-我是H题的报告。
+只有8种数字, 然后压$2^8$mask表示有什么留在了序列中, 然后dp. 最后算那些所有被拿走的数字个数即可.
 
 \problem{In A Crazy City}
 
 \begin{description}
-\item[负责] 负责一、负责二
-\item[情况] 尚未通过
+\item[负责] 邢皓明
+\item[情况] 赛后通过
 \end{description}
 
-我是I题的报告。
+参考论文《Finding the Most Vital Node of a Shortest Path》。
 
 \problem{Jiajia's Robot}
 
 \begin{description}
 \item[负责] 杨越
-\item[情况] 比赛中通过 - 270imin - 7Y
+\item[情况] 比赛中通过 - 270min - 7Y
 \end{description}
 
 对于两个线段两两之间建一个圆, 然后圆并减去圆交. 因为任意两个圆的可行区域是他们的并减交. 然后最终可行区域是所有的并. 
