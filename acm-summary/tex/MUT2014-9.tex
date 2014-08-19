@@ -103,7 +103,7 @@ D题由于是一开始没有想清楚, 所以导致修改的时候改的不是�
 
 把一段区间合并成和相当于是在前缀和序列中删除一个区间的数，于是相当于是操作若干次使得存在一个中心（可能为空），左侧前缀和和右侧后缀和相同。于是就变成了一个简单的子序列dp。
 
-比赛的时候循环居然打成了For(i,1,n) For(j,1,n-1) f[i] = opt{f[j]}还很久没有看出来，气死了。
+比赛的时候循环居然打成了$For(i,1,n) For(j,1,n-1) f[i] = opt{f[j]}$还很久没有看出来，气死了。
 
 \problem{Boring Sum}
 
@@ -112,7 +112,7 @@ D题由于是一开始没有想清楚, 所以导致修改的时候改的不是�
 \item[情况] 比赛中通过 - 53min(1Y)
 \end{description}
 
-1e5以内的约数最多的数只有182个约数，调和枚举求出每个数的约数，然后暴力更新即可。
+$10^5$以内的约数最多的数只有$182$个约数，调和枚举求出每个数的约数，然后暴力更新即可。
 
 \problem{Closed Paths}
 
@@ -121,7 +121,9 @@ D题由于是一开始没有想清楚, 所以导致修改的时候改的不是�
 \item[情况] 比赛中通过 - 279min(3Y)
 \end{description}
 
-我是C题的报告。
+一个比较显然的结论就是从给定的点引出一条射线, 点在向量左边$+1$, 点在右边$-1$, 那么最终答案就是与射线相交的向量的和.
+
+然后我们始终引出向左的射线. 注意一下由于点不能在path上, 所以若线段覆盖的了一段x轴, 这一段x轴不能更新. 最后注意一下每个向量只有一个点在x轴上的情况.
 
 \problem{Dividing a String}
 
@@ -132,7 +134,7 @@ D题由于是一开始没有想清楚, 所以导致修改的时候改的不是�
 
 折半搜索，对于左半部分的每一个方案，有用的信息只有短的串还要接上什么才能变成长的那个串。
 于是相当于是给两个100w的pair<int,string>数组，求一个x,y使得a[x].second==b[y].second且|a[x].first-b[y].second|最小。
-因为second是长度<=20的01串所以不需要map，直接对于每种second压到vector里扫一遍就能求出答案了。
+因为second是长度$\leq 20$的01串所以不需要map，直接对于每种second压到vector里扫一遍就能求出答案了。
 
 \problem{Emmet}
 
@@ -150,7 +152,9 @@ D题由于是一开始没有想清楚, 所以导致修改的时候改的不是�
 \item[情况] 比赛中通过 - 122min(1Y)
 \end{description}
 
-我是F题的报告。
+$(A\times B)^{N\times N} = A\times (B\times A)^{N\times N - 1} \times B$
+
+所以求出$M = B\times A$, $M$ 是 $6 \times 6$的, 然后先跑快速幂$C = M^{N\times N - 1}$, 最后做$A \times C \times B$
 
 \problem{GGS-DDU}
 
@@ -190,7 +194,13 @@ D题由于是一开始没有想清楚, 所以导致修改的时候改的不是�
 \item[情况] 比赛中通过 - 88min(2Y)
 \end{description}
 
-我是J题的报告。
+考虑当前boy离圆心距离为$r$, 由于三点始终在一条直线上, 所以boy和girl的角速度相等. 假设速度方向与三点所成直线夹角为$\theta$于是有 $ \frac{V_1}{R} = V_2 \times \sin\theta$
+
+于是$\cos\theta = \sqrt{1-(\frac{V_1}{V_2 \times R})^2} $
+
+然后$\frac{dr}{dt} = V_2 \times \cos\theta$
+
+积分一下判断 $ \frac{V_2}{V_1} \times R \times \arcsin\frac{V_1}{V_2}$ 是否 $\leq D$
 
 \problem{Killing Monsters}
 
@@ -204,7 +214,6 @@ D题由于是一开始没有想清楚, 所以导致修改的时候改的不是�
 \section{总结}
 
 % 谁来就开场罚时问题写一下吧T_T
-我是总结。
 
 \end{document}
 
