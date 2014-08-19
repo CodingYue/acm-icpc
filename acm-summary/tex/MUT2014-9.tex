@@ -1,0 +1,206 @@
+\documentclass[a4paper, 11pt, nofonts, nocap, fancyhdr]{ctexart}
+\usepackage{graphicx} 
+
+\usepackage[margin=60pt]{geometry}
+
+\setCJKmainfont[BoldFont={FZHei-B01}, ItalicFont={FZKai-Z03}]{FZShuSong-Z01}
+\setCJKmonofont{FZShuSong-Z01}
+
+\CTEXoptions[today=small]
+
+\pagestyle{plain}
+
+
+
+% \fancyhead[L]{\small{team name}}
+% \fancyhead[C]{\small{FSTC 2014 - 05 - 训练报告}}
+% \fancyhead[R]{\small{2014年8月2日}}
+
+\renewcommand{\thesubsubsection}{Problem \Alph{subsubsection}.}
+\newcommand{\problem}[1]{\subsubsection{#1}}
+
+\title{Fudan ACM-ICPC Summer Training Camp 2014\\第N场训练报告}
+\author{Team 1}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{概况}
+
+本场训练，我们队伍在比赛中完成了9道题目，比赛后完成了2道题目，共完成11道题目。已经完成本场训练所有题目。
+
+
+\section{训练过程}
+
+(yy视角)
+
+由于今天非常奇葩, 只有一份题面, 大家把题目拆了开始看题.
+
+我们上机的时候已经有队伍把K题过了, 于是lym去做K题.
+
+[K - 19min - 1Y]
+
+lym本想继续写题, 最后觉得有些问题, 就让xhm写题了. 我由于把F题的N看成$10^4$, 苦苦思考. 然后lym把J题扔给了我, 我就去做J了.
+
+邢皓明写完过了.
+
+[B - 53min - 1Y]
+
+接着lym上去拍I, 拍完过了.
+
+[I - 58min - 1Y]
+
+xhm上去做J, 然后wa了下来看代码, 我推出了J的式子, 上去写了半分钟交发现wa了. 然后下来检查式子, lym开始写E.
+
+5分钟后我发现有个地方写错了, 改了过了.
+
+[J - 88min - 2Y]
+
+然后看了一眼板, 发现大家纷纷过了F题, 于是重新看了看题, 发现$N \leq 1000$, 这时lym写完了E.
+
+[E - 107min - 1Y]
+
+我上去写F, 5分钟写完过了.
+
+[F - 112min - 1Y]
+
+lym帮助xhm查代码, xhm开始写D. 我思考G的做法.
+
+lym查出了xhm代码数组下标可能为负的情况, 改了之后过了A.
+
+[A - 138min - 3Y]
+
+这时我想出了G的正确做法, 由于板子这题需要的板子是lym的, 让lym上去写. 我开始做C题.
+
+[G - 172min - 1Y]
+
+xhm交了一发G, 发现TLE.
+
+于是我开始写C. 一开始写的时候没有思考清楚, 写一半觉得有些恶心, 然后队友们认为$N^2$能过. 于是我迅速码了一个$N^2$的做法上去. 但是TLE了.
+
+于是我下来重新思考$Nlog(N)$的做法, xhm上去优化D题的代码.
+
+D题又提交了一发, 但是还是TLE.
+
+于是我开始写C. 想清楚了之后写了10分钟, 但是wa了. 下来思考, 让xhm继续调题.
+
+最终发现有个地方手贱了.
+
+[C - 279min - 3Y]
+
+D题由于是一开始没有想清楚, 所以导致修改的时候改的不是很正确, 到最后没有调出来.
+
+\section{解题报告}
+
+\problem{Another OCD Patient}
+
+\begin{description}
+\item[负责] 邢皓明
+\item[情况] 比赛中通过 - 138min(3Y)
+\end{description}
+
+我是A题的报告。
+
+\problem{Boring Sum}
+
+\begin{description}
+\item[负责] 邢皓明
+\item[情况] 比赛中通过 - 53min(1Y)
+\end{description}
+
+我是B题的报告。
+
+\problem{Closed Paths}
+
+\begin{description}
+\item[负责] 杨越
+\item[情况] 比赛中通过 - 279min(3Y)
+\end{description}
+
+我是C题的报告。
+
+\problem{Dividing a String}
+
+\begin{description}
+\item[负责] 邢皓明
+\item[情况] 赛后通过
+\end{description}
+
+我是D题的报告。
+
+\problem{Emmet}
+
+\begin{description}
+\item[负责] 刘炎明
+\item[情况] 比赛中通过 - 107min(1Y)
+\end{description}
+
+这种表达式解析的题目随便递归一下就做出来了，最多写个15min，调个5min。看版上大家不敢写其实令人很无语。
+
+\problem{Fast Matrix Calculation}
+
+\begin{description}
+\item[负责] 杨越
+\item[情况] 比赛中通过 - 122min(1Y)
+\end{description}
+
+我是F题的报告。
+
+\problem{GGS-DDU}
+
+\begin{description}
+\item[负责] 杨越、刘炎明
+\item[情况] 比赛中通过 - 178min(1Y)
+\end{description}
+
+挺裸的一个最小树形图模型，按题目所说连边，再从高级向低级连回边即可。使用$O(|V||E|)$的做法已经足够通过。
+
+\problem{Handling the Past}
+
+\begin{description}
+\item[负责] 刘炎明
+\item[情况] 赛后通过
+\end{description}
+
+看了一个小时一直以为是真·Retroactive Data Structures，结果发现其实不是，本题所有Timestamp都给定，并且允许离线，于是从一个挺麻烦的维护变成了一个傻逼题。
+
+按Timestamp离散化后，用线段树维护+1 -1(push/pop)序列上的区间和及最大后缀和，之后做类似于爬线段树的操作，
+先查询右子区间（当然要在$[0,timestamp]$这一段上，下同）的最大后缀和，如果>t（t的含义见后文），说明左子区间没用，答案产生在右子区间，向右走即可。
+否则，答案产生在左子区间，这时，求出右子区间的和，若为负数则代表最终pop了左子区间里push进去的值，因此向左走，并从查询栈顶向上第t个元素改为查询第$t + (-sum_r)$个即可。
+
+\problem{Improving the GPA}
+
+\begin{description}
+\item[负责] 刘炎明
+\item[情况] 比赛中通过 - 58min(1Y)
+\end{description}
+
+简单的背包问题。
+
+\problem{Just a Joke}
+
+\begin{description}
+\item[负责] 杨越
+\item[情况] 比赛中通过 - 88min(2Y)
+\end{description}
+
+我是J题的报告。
+
+\problem{Killing Monsters}
+
+\begin{description}
+\item[负责] 刘炎明
+\item[情况] 比赛中通过 - 19min(1Y)
+\end{description}
+
+容易求出怪物走在每个格子的时候受到的伤害（一边扫描即可），然后还用说吗？
+
+\section{总结}
+
+% 谁来就开场罚时问题写一下吧T_T
+我是总结。
+
+\end{document}
+

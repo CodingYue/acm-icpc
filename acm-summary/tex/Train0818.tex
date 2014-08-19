@@ -1,0 +1,78 @@
+\documentclass[a4paper, 11pt, nofonts, nocap, fancyhdr]{ctexart}
+\usepackage{graphicx} 
+
+\usepackage[margin=60pt]{geometry}
+
+\setCJKmainfont[BoldFont={FZHei-B01}, ItalicFont={FZKai-Z03}]{FZShuSong-Z01}
+\setCJKmonofont{FZShuSong-Z01}
+
+\CTEXoptions[today=small]
+
+\pagestyle{plain}
+
+
+
+% \fancyhead[L]{\small{team 1}}
+% \fancyhead[C]{\small{FSTC 2014 - 05 - 训练报告}}
+% \fancyhead[R]{\small{2014年8月2日}}
+
+\renewcommand{\thesubsubsection}{Problem \Alph{subsubsection}.}
+\newcommand{\problem}[1]{\subsubsection{#1}}
+
+\title{Fudan ACM-ICPC Summer Training Camp 2014\\第13场训练报告}
+\author{Team 1}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{概况}
+
+本场训练，我们队伍在比赛中完成了7道题目，比赛后完成了？道题目，共完成？道题目。已经（？）完成本场训练至少完成8题的要求（或，已经完成本场训练所有题目）。
+
+这里是其他概况。
+
+\section{训练过程}
+
+（XHM视角）
+
+一上来lym配环境，我和yy胡乱看题。看到A就不淡定了，尼玛写了3遍的题，怒上机拍之。
+
+（可我似乎忘了之前虽然做过三遍但是每次都wa了两三发。。
+
+yy说D题他做过，暴力最大流就能过，所以第一次提交wa掉之后，lym上机写D的裸网络流。
+
+[problem D - 69min - 1Y]
+
+[problem A - 74min - 4Y]
+
+通过A题之后下机和越哥讨论题，越哥说有一道贪心不记得怎么做了，是八中上的题，问我记不记得。
+
+我一看。。尼玛想多了吧。。排序题，遂让lym上去写。
+
+[problem F - 84min - 1Y]
+
+I题是个简单的dp，状态表示很显然，写就可以了，同样由主代码手lym完成。
+
+[problem I - 107min - 2Y]
+
+C题描述很像以前见过的一道神题，仔细读了之后发现不是那道= =只是一道简单的polya计数，yuege第一发快速幂打错了- -|||
+
+[problem C - 157min - 2Y]
+
+这时候突然想起来还有一道K题，于是我上去写，因为前几天刚做过一道几乎一样的，很快写完后犯了数组开小/没清数组两个手贱，改正后AC。
+
+[problem K - 210min - 3Y]
+
+在我和yuege调试期间lym写完了E题，一直没过样例，调试无果，我过去仔细一看。。尼玛模板打错了。。p和0印在纸上太像了233，改完就过样例了，提交AC。
+
+[problem E - 216min - 1Y]
+
+然后lym表示又累又饿去睡一会，我和yuege搞J题，期间忘了仔细跟yuege确认做法，结果越哥耿直的拍了个$n^2$,赶紧被我拉下来了，跟他说了我的做法后yuege很气愤：你不早说！于是吵吵闹闹的最后没有写完$O(nlogn)$的做法。
+
+\section{总结}
+
+今天虽然看起来踩了其他队伍好多题，但实际上感觉如果是regional的话，节奏这么慢肯定拿不到奖杯的，最后J题没有通过也是一个致命伤，但这也跟蔽队没有吃东西有关。。如果好好打的话大概能8题少罚时吧，一定几率能冲9题。
+
+\end{document}
