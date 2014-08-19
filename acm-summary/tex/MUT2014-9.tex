@@ -1,0 +1,215 @@
+\documentclass[a4paper, 11pt, nofonts, nocap, fancyhdr]{ctexart}
+\usepackage{graphicx} 
+
+\usepackage[margin=60pt]{geometry}
+
+\setCJKmainfont[BoldFont={FZHei-B01}, ItalicFont={FZKai-Z03}]{FZShuSong-Z01}
+\setCJKmonofont{FZShuSong-Z01}
+
+\CTEXoptions[today=small]
+
+\pagestyle{plain}
+
+
+
+% \fancyhead[L]{\small{team name}}
+% \fancyhead[C]{\small{FSTC 2014 - 05 - 训练报告}}
+% \fancyhead[R]{\small{2014年8月2日}}
+
+\renewcommand{\thesubsubsection}{Problem \Alph{subsubsection}.}
+\newcommand{\problem}[1]{\subsubsection{#1}}
+
+\title{Fudan ACM-ICPC Summer Training Camp 2014\\第N场训练报告}
+\author{Team 1}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{概况}
+
+本场训练，我们队伍在比赛中完成了9道题目，比赛后完成了2道题目，共完成11道题目。已经完成本场训练所有题目。
+
+
+\section{训练过程}
+
+(yy视角)
+
+由于今天非常奇葩, 只有一份题面, 大家把题目拆了开始看题.
+
+我们上机的时候已经有队伍把K题过了, 于是lym去做K题.
+
+[K - 19min - 1Y]
+
+lym本想继续写题, 最后觉得有些问题, 就让xhm写题了. 我由于把F题的N看成$10^4$, 苦苦思考. 然后lym把J题扔给了我, 我就去做J了.
+
+邢皓明写完过了.
+
+[B - 53min - 1Y]
+
+接着lym上去拍I, 拍完过了.
+
+[I - 58min - 1Y]
+
+xhm上去做J, 然后wa了下来看代码, 我推出了J的式子, 上去写了半分钟交发现wa了. 然后下来检查式子, lym开始写E.
+
+5分钟后我发现有个地方写错了, 改了过了.
+
+[J - 88min - 1Y]
+
+然后看了一眼板, 发现大家纷纷过了F题, 于是重新看了看题, 发现$N \leq 1000$, 这时lym写完了E.
+
+[E - 107min - 1Y]
+
+我上去写F, 5分钟写完过了.
+
+[F - 112min - 1Y]
+
+lym帮助xhm查代码, xhm开始写D. 我思考G的做法.
+
+lym查出了xhm代码数组下标可能为负的情况, 改了之后过了A.
+
+[A - 138min - 3Y]
+
+这时我想出了G的正确做法, 由于板子这题需要的板子是lym的, 让lym上去写. 我开始做C题.
+
+[G - 172min - 1Y]
+
+xhm交了一发G, 发现TLE.
+
+于是我开始写C. 一开始写的时候没有思考清楚, 写一半觉得有些恶心, 然后队友们认为$N^2$能过. 于是我迅速码了一个$N^2$的做法上去. 但是TLE了.
+
+于是我下来重新思考$Nlog(N)$的做法, xhm上去优化D题的代码.
+
+D题又提交了一发, 但是还是TLE.
+
+于是我开始写C. 想清楚了之后写了10分钟, 但是wa了. 下来思考, 让xhm继续调题.
+
+最终发现有个地方手贱了.
+
+[C - 279min - 3Y]
+
+D题由于是一开始没有想清楚, 所以导致修改的时候改的不是很正确, 到最后没有调出来.
+
+\section{解题报告}
+
+\problem{Another OCD Patient}
+
+\begin{description}
+\item[负责] 负责一、负责二
+\item[情况] 比赛中通过 - 233min(1Y)
+\end{description}
+
+我是A题的报告。
+
+\problem{Boring Sum}
+
+\begin{description}
+\item[负责] 负责一、负责二
+\item[情况] 比赛中通过 - 233min(3Y)
+\end{description}
+
+我是B题的报告。
+
+\problem{Closed Paths}
+
+\begin{description}
+\item[负责] 负责一、负责二
+\item[情况] 比赛后通过
+\end{description}
+
+我是C题的报告。
+
+\problem{Dividing a String}
+
+\begin{description}
+\item[负责] 负责一、负责二
+\item[情况] 尚未通过
+\end{description}
+
+我是D题的报告。
+
+\problem{Emmet}
+
+\begin{description}
+\item[负责] 负责一、负责二
+\item[情况] 尚未通过
+\end{description}
+
+我是E题的报告。
+
+\problem{Fast Matrix Calculation}
+
+\begin{description}
+\item[负责] 负责一、负责二
+\item[情况] 尚未通过
+\end{description}
+
+我是F题的报告。
+
+\problem{GGS-DDU}
+
+\begin{description}
+\item[负责] 负责一、负责二
+\item[情况] 尚未通过
+\end{description}
+
+我是G题的报告。
+
+
+\problem{Handling the Past}
+
+\begin{description}
+\item[负责] 负责一、负责二
+\item[情况] 尚未通过
+\end{description}
+
+我是H题的报告。
+
+\problem{Improving the GPA}
+
+\begin{description}
+\item[负责] 负责一、负责二
+\item[情况] 尚未通过
+\end{description}
+
+我是I题的报告。
+
+
+\problem{Just a Joke}
+
+\begin{description}
+\item[负责] 负责一、负责二
+\item[情况] 尚未通过
+\end{description}
+
+我是J题的报告。
+
+
+
+\problem{Killing Monsters}
+
+\begin{description}
+\item[负责] 负责一、负责二
+\item[情况] 尚未通过
+\end{description}
+
+我是K题的报告。
+
+
+\problem{我是L题的标题}
+
+\begin{description}
+\item[负责] 负责一、负责二
+\item[情况] 尚未通过
+\end{description}
+
+我是L题的报告。
+
+\section{总结}
+
+我是总结。
+
+\end{document}
+
