@@ -1,0 +1,155 @@
+\documentclass[a4paper, 11pt, nofonts, nocap, fancyhdr]{ctexart}
+\usepackage{graphicx} 
+
+\usepackage[margin=60pt]{geometry}
+
+\setCJKmainfont[BoldFont={FZHei-B01}, ItalicFont={FZKai-Z03}]{FZShuSong-Z01}
+\setCJKmonofont{FZShuSong-Z01}
+
+\CTEXoptions[today=small]
+
+\pagestyle{plain}
+
+
+
+% \fancyhead[L]{\small{team name}}
+% \fancyhead[C]{\small{FSTC 2014 - 05 - 训练报告}}
+% \fancyhead[R]{\small{2014年8月2日}}
+
+\renewcommand{\thesubsubsection}{Problem \Alph{subsubsection}.}
+\newcommand{\problem}[1]{\subsubsection{#1}}
+
+\title{Fudan ACM-ICPC Summer Training Camp 2014\\第N场训练报告}
+\author{Team 1}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{概况}
+
+本场训练，我们队伍在比赛中完成了N道题目，比赛后完成了N道题目，共完成N道题目。已经完成本场训练至少完成N题的要求（或，已经完成本场训练所有题目）。
+
+这里是其他概况。
+
+\section{训练过程}
+
+
+
+\section{解题报告}
+
+\problem{2048}
+
+\begin{description}
+\item[负责] 邢皓明
+\item[情况] 比赛中通过 - 126min - 4Y
+\end{description}
+
+考虑f[i][j]表示考虑完了2^0,2^1...2^i之后，至少可以拼出j个2^i的方案数，答案是f[12][1]，转移用组合数即可。
+
+\problem{Area of Mushroom}
+
+\begin{description}
+\item[负责] 杨越
+\item[情况] 比赛中通过 - 240min - 5Y
+\end{description}
+
+首先只有相等的才会影响且能走到最后. 于是对每个点, 将左右与其等速的点, 做一次极角排序, 如果某两个相邻的角度 $\geq \pi$那么就是infinity
+
+\problem{GCD Array}
+
+\begin{description}
+\item[负责] 杨越
+\item[情况] 比赛后通过
+\end{description}
+
+考虑一个一个操作$(n, d, v)$对一个询问$L$的影响, 答案是$v\times \sum\limits_{(t,n)=d\ t<=L} = v\times \sum\limits_{t|\frac{n}{d}} \lfloor\frac{L}{t\times d}\rfloor$
+
+然后单独把$t\times d$拿出来, 令$x = t\times d$
+
+$\sum\limits_{x=1}^{L} \lfloor \frac{L}{x} \rfloor f(x)$
+
+考虑$f(x)$的意义, $x=t\times d, t | \frac{n}{d}$, 所以对于所有操作$(n, d, v)$ 对 $\frac{n}{d}$ 的所有约数$t$, 在$t\times d$ 打上加上加$v$的标记, 用树状数组维护前缀和. 最后由于只有根号锻 $\lfloor\frac{L}{x}\rfloor$是不同的, 所有单次复杂度均为$\sqrt{N}\times \log(N)$
+
+\problem{Kingdom}
+
+\begin{description}
+\item[负责] 邢皓明
+\item[情况] 赛后通过
+\end{description}
+
+首先问题一定是有解的。每次找出一个可以放在最后的点，对前面的方案没有影响，于是就把问题变成规模为n-1的子问题了。
+
+\problem{Light}
+
+\begin{description}
+\item[负责] 邢皓明
+\item[情况] 赛后通过
+\end{description}
+
+直接轮廓线dp，一共有3种状态：是0，是1，以及在这个位置使用了一个十字形修改。总状态O(n*m*2^m)。
+
+\problem{Monster}
+
+\begin{description}
+\item[负责] 刘焱明
+\item[情况] 比赛中通过 - 21min - 2Y
+\end{description}
+
+注意到提前休息没有意义，剩下情况显然。
+
+\problem{Multiplication table}
+
+\begin{description}
+\item[负责] 邢皓明
+\item[情况] 比赛中通过 - 257min - 2Y
+\end{description}
+
+凑出p-1之后，p-1+p-1就是p-2,p-1+p-2就是p-3，如此便可推出所有数。
+
+\problem{Number Transformation}
+
+\begin{description}
+\item[负责] 刘焱明
+\item[情况] 比赛中通过 - 174 - 3Y
+\end{description}
+
+不要瞎搞啊v\_v。
+
+如果将每次变换后的数写成$a_i \times i$的形式，我们注意到$a_i$是单调减的，并且当$a_i \leq i$时$a_i$将不会再改变，而显然这个变换次数是根号级别的。下略。
+
+\problem{Periodic Binary String}
+
+\begin{description}
+\item[负责] 无
+\item[情况] 尚未通过
+\end{description}
+
+奇怪的题目。
+
+\problem{Permanent}
+
+\begin{description}
+\item[负责] 无
+\item[情况] 尚未通过
+\end{description}
+
+分治之后发现就是卷积。。求m问也还是卷积。。FFT就行了，不想写。。
+
+\problem{Tree}
+
+\begin{description}
+\item[负责] 邢皓明
+\item[情况] 赛后通过
+\end{description}
+
+建一个二分图，左边是非空的集合，右边是n个点，每个集合只能向不在其内部的点连边，最大匹配数即为方案数。
+于是可以用dp解决。
+
+\section{总结}
+
+我是总结。
+
+\end{document}
+
