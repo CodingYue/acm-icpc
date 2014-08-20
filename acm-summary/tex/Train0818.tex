@@ -78,7 +78,7 @@ C题描述很像以前见过的一道神题，仔细读了之后发现不是那�
 
 \begin{description}
 \item[负责] 邢皓明
-\item[情况] 比赛中通过 - 74min - 4Y
+\item[情况] 比赛中通过 - 71min(4Y)
 \end{description}
 
 先用斯坦纳树预处理10个村庄的每个子集连通的最小代价，然后做一个背包。
@@ -86,13 +86,8 @@ C题描述很像以前见过的一道神题，仔细读了之后发现不是那�
 \problem{Astrolabe}
 
 \begin{description}
-<<<<<<< HEAD
 \item[负责] 刘炎明
 \item[情况] 赛前通过
-=======
-\item[负责] 刘焱明
-\item[情况] 比赛前通过
->>>>>>> origin/master
 \end{description}
 
 第一部分嘛，题目怎么说怎么写。第二部分嘛，这个问题显然至少是NP-Hard的，点数又只有12，因此我们直接爆搜就可以了，记得加入最优性剪枝。
@@ -101,23 +96,16 @@ C题描述很像以前见过的一道神题，仔细读了之后发现不是那�
 
 \begin{description}
 \item[负责] 杨越
-\item[情况] 比赛中通过 - 157min - 2Y
+\item[情况] 比赛时通过
 \end{description}
 
-首先是polya计数, 在rotate置换下, 环长度都相同, 当环长度为$L$时, 有$\phi(L)$种置换, 环个数为$\frac{N}{L}$. 所以这里枚举$N$的约数.
-
-接着是莫比乌斯函数的容斥, $F_d$表示$d$的倍数在$m$个数里面出现了几次. 最后容斥一下.
+burnside引理，对于环数相同的置换答案相同，枚举gcd用莫比乌斯函数算出答案。
 
 \problem{Island Transport}
 
 \begin{description}
-<<<<<<< HEAD
 \item[负责] 杨越
 \item[情况] 比赛时通过 - 69min
-=======
-\item[负责] 刘焱明
-\item[情况] 比赛中通过 - 69min - 1Y
->>>>>>> origin/master
 \end{description}
 
 平面图网络流是一个经典问题，可以通过转化为对偶图再跑最短路来解决，可惜这题数据出的不好，直接暴力网络流就可以了。
@@ -125,13 +113,8 @@ C题描述很像以前见过的一道神题，仔细读了之后发现不是那�
 \problem{GRE Words}
 
 \begin{description}
-<<<<<<< HEAD
 \item[负责] 刘炎明
 \item[情况] 比赛时通过 - 216min
-=======
-\item[负责] 刘焱明
-\item[情况] 比赛中通过 - 216min - 1Y
->>>>>>> origin/master
 \end{description}
 
 做一遍后缀数组，每次搞出连续的后缀区间，在线段树上查询一下即可。修改的时候直接暴力修改进去。
@@ -139,13 +122,8 @@ C题描述很像以前见过的一道神题，仔细读了之后发现不是那�
 \problem{Buildings}
 
 \begin{description}
-<<<<<<< HEAD
 \item[负责] 邢皓明
 \item[情况] 比赛时通过 - 69min
-=======
-\item[负责] 刘焱明, 邢皓明
-\item[情况] 比赛中通过 - 84min - 1Y
->>>>>>> origin/master
 \end{description}
 
 直接按a+b排序即可，好像是NOIP题？
@@ -159,6 +137,7 @@ C题描述很像以前见过的一道神题，仔细读了之后发现不是那�
 
 写都不想写。
 
+
 \problem{Multiple}
 
 \begin{description}
@@ -166,39 +145,45 @@ C题描述很像以前见过的一道神题，仔细读了之后发现不是那�
 \item[情况] 尚未通过
 \end{description}
 
-我是H题的报告。
+诶好像题数够了。。
 
 \problem{4 substrings problem}
 
 \begin{description}
-<<<<<<< HEAD
 \item[负责] 刘炎明
 \item[情况] 比赛时通过
-=======
-\item[负责] 刘焱明
-\item[情况] 比赛中通过 - 107min - 2Y
->>>>>>> origin/master
 \end{description}
 
 很显然的一个DP，状态记录哪些串已经用过，已经开始的cover还能cover多久即可。
 
+
 \problem{Raining}
 
 \begin{description}
-\item[负责] 负责一、负责二
-\item[情况] 尚未通过
+\item[负责] 邢皓明
+\item[情况] 赛后已写，数据有错
 \end{description}
 
-我是J题的报告。
+首先水不会漫过最高的山，所以最高点左右分成两段，较大的那个时间即为答案。
+
+每段reverse后答案不变，我们假设最高峰在左边。
+然后考虑二分答案，对于当前答案x，总共会有L * x * v的水量落到山上，如果山能盛下（容积>水量），那么这个答案可以；否则一定会从右边溢出。
+
+考虑溢出时，i..r这一段一定被水盛满了，r为最右端的点，i为最靠右的高度大于最右端的点。
+
+容易发现，如果没有高度相等的山峰的话，最后被盛满的i..r的容积小一点，答案的可行性不会变，因为就算装的水少了也会从旁边漏走，于是局面等价于i..r并不存在的情况，然后再判断a[1..i]的可行性就好了，一趟单调栈扫描就可以处理出所有这样的(i,r)的容积和长度，看是否存在一个前缀使得容积/长度>=x * V即可。
+
+再回顾一下这个check发现其实没必要写二分。。只需要取(容积/(长度*V))的最大值作为答案就可以了。
+于是我们得到了一个O(n)的做法。
 
 \problem{Graph}
 
 \begin{description}
 \item[负责] 邢皓明
-\item[情况] 比赛中通过 - 210 - 3Y
+\item[情况] 比赛时通过
 \end{description}
 
-我是K题的报告。
+度数大于sqrt(2m)的称为大点，其余为小点，对每个大点预处理邻接点的信息，修改的是小点的话暴力更新，是大点的话修改自己和其余大点的信息即可，复杂度O(QsqrtM)。
 
 \section{总结}
 
