@@ -19,7 +19,7 @@
 \renewcommand{\thesubsubsection}{Problem \Alph{subsubsection}.}
 \newcommand{\problem}[1]{\subsubsection{#1}}
 
-\title{Fudan ACM-ICPC Summer Training Camp 2014\\第N场训练报告}
+\title{Fudan ACM-ICPC Summer Training Camp 2014\\第11场训练报告}
 \author{Team 1}
 \date{\today}
 
@@ -29,13 +29,31 @@
 
 \section{概况}
 
-本场训练，我们队伍在比赛中完成了N道题目，比赛后完成了N道题目，共完成N道题目。已经完成本场训练至少完成N题的要求（或，已经完成本场训练所有题目）。
-
-这里是其他概况。
+本场训练，我们队伍在比赛中完成了5道题目，比赛后完成了4道题目，共完成9道题目。已经完成本场训练至少完成9题的要求。
 
 \section{训练过程}
 
-我是过程。
+开场lym看到F是签到题上去秒了。没判a=b的情况re了一发。
+
+[F - 21min - 2Y]
+
+然后xhm上去写A，因为忽略了有可能输入的Ai不是2的幂，导致一直在wa，期间口胡了两发H，做法对了，因为姿势不正确没过。
+
+[A - 126min - 4Y]
+
+然后lym花了半小时证明H的做法没有任何问题，写了一个机智一点的根号算法就过了。
+
+[H - 174min - 3Y]
+
+yy写的B题徘徊在wa和tle的边缘，后来发现有一个double判>=0写成<=0了，于是改后过
+
+[B - 240min - 5Y]
+
+最后xhm上去口胡了个G的代码低空飞过。
+
+[G - 257min - 2Y]
+
+最后就过了5题..
 
 \section{解题报告}
 
@@ -46,13 +64,13 @@
 \item[情况] 比赛中通过 - 126min - 4Y
 \end{description}
 
-我是A题的报告。
+考虑f[i][j]表示考虑完了$2^0,2^1\dots 2^i$之后，至少可以拼出j个$2^i$的方案数，答案是f[12][1]，转移用组合数即可。
 
 \problem{Area of Mushroom}
 
 \begin{description}
 \item[负责] 杨越
-\item[情况] 比赛中通过 - 240 - 5Y
+\item[情况] 比赛中通过 - 240min - 5Y
 \end{description}
 
 首先只有相等的才会影响且能走到最后. 于是对每个点, 将左右与其等速的点, 做一次极角排序, 如果某两个相邻的角度 $\geq \pi$那么就是infinity
@@ -76,19 +94,19 @@ $\sum\limits_{x=1}^{L} \lfloor \frac{L}{x} \rfloor f(x)$
 
 \begin{description}
 \item[负责] 邢皓明
-\item[情况] 比赛后通过
+\item[情况] 赛后通过
 \end{description}
 
-我是D题的报告。
+首先问题一定是有解的。每次找出一个可以放在最后的点，对前面的方案没有影响，于是就把问题变成规模为n-1的子问题了。
 
 \problem{Light}
 
 \begin{description}
-\item[负责] 负责一、负责二
-\item[情况] 尚未通过
+\item[负责] 邢皓明
+\item[情况] 赛后通过
 \end{description}
 
-我是E题的报告。
+直接轮廓线dp，一共有3种状态：是0，是1，以及在这个位置使用了一个十字形修改。总状态$O(n\times m\times 2^m)$。
 
 \problem{Monster}
 
@@ -106,8 +124,7 @@ $\sum\limits_{x=1}^{L} \lfloor \frac{L}{x} \rfloor f(x)$
 \item[情况] 比赛中通过 - 257min - 2Y
 \end{description}
 
-我是G题的报告。
-
+凑出p-1之后，p-1+p-1就是p-2,p-1+p-2就是p-3，如此便可推出所有数。
 
 \problem{Number Transformation}
 
@@ -123,32 +140,34 @@ $\sum\limits_{x=1}^{L} \lfloor \frac{L}{x} \rfloor f(x)$
 \problem{Periodic Binary String}
 
 \begin{description}
-\item[负责] 负责一、负责二
+\item[负责] 无
 \item[情况] 尚未通过
 \end{description}
 
+奇怪的题目。
 
 \problem{Permanent}
 
 \begin{description}
-\item[负责] 负责一、负责二
+\item[负责] 无
 \item[情况] 尚未通过
 \end{description}
 
-我是J题的报告。
+分治之后发现就是卷积。。求m问也还是卷积。。FFT就行了，不想写。。
 
 \problem{Tree}
 
 \begin{description}
-\item[负责] 负责一、负责二
-\item[情况] 尚未通过
+\item[负责] 邢皓明
+\item[情况] 赛后通过
 \end{description}
 
-我是K题的报告。
+建一个二分图，左边是非空的集合，右边是n个点，每个集合只能向不在其内部的点连边，最大匹配数即为方案数。
+于是可以用dp解决。
 
 \section{总结}
 
-我是总结。
+这场2人梦游+1人倒时差。。打得很挫，不多说。
 
 \end{document}
 

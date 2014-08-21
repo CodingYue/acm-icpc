@@ -29,9 +29,7 @@
 
 \section{概况}
 
-本场训练，我们队伍在比赛中完成了7道题目，比赛后完成了？道题目，共完成？道题目。已经（？）完成本场训练至少完成8题的要求（或，已经完成本场训练所有题目）。
-
-这里是其他概况。
+本场训练，我们队伍在比赛中完成了7道题目，比赛后完成了1道题目，共完成8道题目。已经完成本场训练至少完成8题的要求.
 
 \section{训练过程}
 
@@ -69,7 +67,121 @@ C题描述很像以前见过的一道神题，仔细读了之后发现不是那�
 
 [problem E - 216min - 1Y]
 
-然后lym表示又累又饿去睡一会，我和yuege搞J题，期间忘了仔细跟yuege确认做法，结果越哥耿直的拍了个n^2,赶紧被我拉下来了，跟他说了我的做法后yuege很气愤：你不早说！于是吵吵闹闹的最后没有写完O(nlogn)的做法。
+然后lym表示又累又饿去睡一会，我和yuege搞J题，期间忘了仔细跟yuege确认做法，结果越哥耿直的拍了个$n^2$,赶紧被我拉下来了，跟他说了我的做法后yuege很气愤：你不早说！于是吵吵闹闹的最后没有写完$O(nlogn)$的做法。
+
+\section{解题报告}
+
+
+\problem{Peach Blossom Spring}
+
+\begin{description}
+\item[负责] 邢皓明
+\item[情况] 比赛中通过 - 71min(4Y)
+\end{description}
+
+先用斯坦纳树预处理10个村庄的每个子集连通的最小代价，然后做一个背包。
+
+\problem{Astrolabe}
+
+\begin{description}
+\item[负责] 刘炎明
+\item[情况] 赛前通过
+\end{description}
+
+第一部分嘛，题目怎么说怎么写。第二部分嘛，这个问题显然至少是NP-Hard的，点数又只有12，因此我们直接爆搜就可以了，记得加入最优性剪枝。
+
+\problem{Zhuge Liang's Stone Sentinel Maze}
+
+\begin{description}
+\item[负责] 杨越
+\item[情况] 比赛时通过
+\end{description}
+
+burnside引理，对于环数相同的置换答案相同，枚举gcd用莫比乌斯函数算出答案。
+
+\problem{Island Transport}
+
+\begin{description}
+\item[负责] 杨越
+\item[情况] 比赛时通过 - 69min
+\end{description}
+
+平面图网络流是一个经典问题，可以通过转化为对偶图再跑最短路来解决，可惜这题数据出的不好，直接暴力网络流就可以了。
+
+\problem{GRE Words}
+
+\begin{description}
+\item[负责] 刘炎明
+\item[情况] 比赛时通过 - 216min
+\end{description}
+
+做一遍后缀数组，每次搞出连续的后缀区间，在线段树上查询一下即可。修改的时候直接暴力修改进去。
+
+\problem{Buildings}
+
+\begin{description}
+\item[负责] 邢皓明
+\item[情况] 比赛时通过 - 69min
+\end{description}
+
+直接按a+b排序即可，好像是NOIP题？
+
+\problem{Dynamic Lover}
+
+\begin{description}
+\item[负责] 呵呵
+\item[情况] 尚未通过
+\end{description}
+
+写都不想写。
+
+
+\problem{Multiple}
+
+\begin{description}
+\item[负责] 负责一、负责二
+\item[情况] 尚未通过
+\end{description}
+
+诶好像题数够了。。
+
+\problem{4 substrings problem}
+
+\begin{description}
+\item[负责] 刘炎明
+\item[情况] 比赛时通过
+\end{description}
+
+很显然的一个DP，状态记录哪些串已经用过，已经开始的cover还能cover多久即可。
+
+
+\problem{Raining}
+
+\begin{description}
+\item[负责] 邢皓明
+\item[情况] 赛后已写，数据有错
+\end{description}
+
+首先水不会漫过最高的山，所以最高点左右分成两段，较大的那个时间即为答案。
+
+每段reverse后答案不变，我们假设最高峰在左边。
+然后考虑二分答案，对于当前答案x，总共会有L * x * v的水量落到山上，如果山能盛下（容积>水量），那么这个答案可以；否则一定会从右边溢出。
+
+考虑溢出时，i..r这一段一定被水盛满了，r为最右端的点，i为最靠右的高度大于最右端的点。
+
+容易发现，如果没有高度相等的山峰的话，最后被盛满的i..r的容积小一点，答案的可行性不会变，因为就算装的水少了也会从旁边漏走，于是局面等价于i..r并不存在的情况，然后再判断a[1..i]的可行性就好了，一趟单调栈扫描就可以处理出所有这样的(i,r)的容积和长度，看是否存在一个前缀使得容积/长度>=x * V即可。
+
+再回顾一下这个check发现其实没必要写二分。。只需要取(容积/(长度*V))的最大值作为答案就可以了。
+于是我们得到了一个O(n)的做法。
+
+\problem{Graph}
+
+\begin{description}
+\item[负责] 邢皓明
+\item[情况] 比赛时通过
+\end{description}
+
+度数大于sqrt(2m)的称为大点，其余为小点，对每个大点预处理邻接点的信息，修改的是小点的话暴力更新，是大点的话修改自己和其余大点的信息即可，复杂度O(QsqrtM)。
 
 \section{总结}
 

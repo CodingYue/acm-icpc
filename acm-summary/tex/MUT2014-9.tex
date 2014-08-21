@@ -1,0 +1,230 @@
+\documentclass[a4paper, 11pt, nofonts, nocap, fancyhdr]{ctexart}
+\usepackage{graphicx} 
+
+\usepackage[margin=60pt]{geometry}
+
+\setCJKmainfont[BoldFont={FZHei-B01}, ItalicFont={FZKai-Z03}]{FZShuSong-Z01}
+\setCJKmonofont{FZShuSong-Z01}
+
+\CTEXoptions[today=small]
+
+\pagestyle{plain}
+
+
+
+% \fancyhead[L]{\small{team name}}
+% \fancyhead[C]{\small{FSTC 2014 - 05 - 训练报告}}
+% \fancyhead[R]{\small{2014年8月2日}}
+
+\renewcommand{\thesubsubsection}{Problem \Alph{subsubsection}.}
+\newcommand{\problem}[1]{\subsubsection{#1}}
+
+\title{Fudan ACM-ICPC Summer Training Camp 2014\\第14场训练报告}
+\author{Team 1}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{概况}
+
+本场训练，我们队伍在比赛中完成了9道题目，比赛后完成了2道题目，共完成11道题目。已经完成本场训练所有题目。
+
+
+\section{训练过程}
+
+(yy视角)
+
+由于今天非常奇葩, 只有一份题面, 大家把题目拆了开始看题.
+
+我们上机的时候已经有队伍把K题过了, 于是lym去做K题.
+
+[K - 19min - 1Y]
+
+lym本想继续写题, 最后觉得有些问题, 就让xhm写题了. 我由于把F题的N看成$10^4$, 苦苦思考. 然后lym把J题扔给了我, 我就去做J了.
+
+邢皓明写完过了.
+
+[B - 53min - 1Y]
+
+接着lym上去拍I, 拍完过了.
+
+[I - 58min - 1Y]
+
+xhm上去做A, 然后wa了下来看代码, 我推出了J的式子, 上去写了半分钟交发现wa了. 然后下来检查式子, lym开始写E.
+
+5分钟后我发现有个地方写错了, 改了过了.
+
+[J - 88min - 2Y]
+
+然后看了一眼板, 发现大家纷纷过了F题, 于是重新看了看题, 发现$N \leq 1000$, 这时lym写完了E.
+
+[E - 107min - 1Y]
+
+我上去写F, 5分钟写完过了.
+
+[F - 112min - 1Y]
+
+lym帮助xhm查代码, xhm开始写D. 我思考G的做法.
+
+lym查出了xhm代码数组下标可能为负的情况, 改了之后过了A.
+
+[A - 138min - 3Y]
+
+这时我想出了G的正确做法, 由于板子这题需要的板子是lym的, 让lym上去写. 我开始做C题.
+
+[G - 172min - 1Y]
+
+xhm交了一发D, 发现TLE.
+
+于是我开始写C. 一开始写的时候没有思考清楚, 写一半觉得有些恶心, 然后队友们认为$N^2$能过. 于是我迅速码了一个$N^2$的做法上去. 但是TLE了.
+
+于是我下来重新思考$Nlog(N)$的做法, xhm上去优化D题的代码.
+
+D题又提交了一发, 但是还是TLE.
+
+于是我开始写C. 想清楚了之后写了10分钟, 但是wa了. 下来思考, 让xhm继续调题.
+
+最终发现有个地方手贱了.
+
+[C - 279min - 3Y]
+
+D题由于是一开始没有想清楚, 所以导致修改的时候改的不是很正确, 到最后没有调出来.
+
+\section{解题报告}
+
+\problem{Another OCD Patient}
+
+\begin{description}
+\item[负责] 邢皓明
+\item[情况] 比赛中通过 - 138min(3Y)
+\end{description}
+
+把一段区间合并成和相当于是在前缀和序列中删除一个区间的数，于是相当于是操作若干次使得存在一个中心（可能为空），左侧前缀和和右侧后缀和相同。于是就变成了一个简单的子序列dp。
+
+比赛的时候循环居然打成了$For(i,1,n) For(j,1,n-1) f[i] = opt{f[j]}$还很久没有看出来，气死了。
+
+\problem{Boring Sum}
+
+\begin{description}
+\item[负责] 邢皓明
+\item[情况] 比赛中通过 - 53min(1Y)
+\end{description}
+
+$10^5$以内的约数最多的数只有$182$个约数，调和枚举求出每个数的约数，然后暴力更新即可。
+
+\problem{Closed Paths}
+
+\begin{description}
+\item[负责] 杨越
+\item[情况] 比赛中通过 - 279min(3Y)
+\end{description}
+
+一个比较显然的结论就是从给定的点引出一条射线, 点在向量左边$+1$, 点在右边$-1$, 那么最终答案就是与射线相交的向量的和.
+
+然后我们始终引出向左的射线. 注意一下由于点不能在path上, 所以若线段覆盖的了一段x轴, 这一段x轴不能更新. 最后注意一下每个向量只有一个点在x轴上的情况.
+
+\problem{Dividing a String}
+
+\begin{description}
+\item[负责] 邢皓明
+\item[情况] 赛后通过
+\end{description}
+
+折半搜索，对于左半部分的每一个方案，有用的信息只有短的串还要接上什么才能变成长的那个串。
+于是相当于是给两个100w的pair<int,string>数组，求一个x,y使得a[x].second==b[y].second且|a[x].first-b[y].second|最小。
+因为second是长度$\leq 20$的01串所以不需要map，直接对于每种second压到vector里扫一遍就能求出答案了。
+
+\problem{Emmet}
+
+\begin{description}
+\item[负责] 刘炎明
+\item[情况] 比赛中通过 - 107min(1Y)
+\end{description}
+
+这种表达式解析的题目随便递归一下就做出来了，最多写个15min，调个5min。看版上大家不敢写其实令人很无语。
+
+\problem{Fast Matrix Calculation}
+
+\begin{description}
+\item[负责] 杨越
+\item[情况] 比赛中通过 - 122min(1Y)
+\end{description}
+
+$(A\times B)^{N\times N} = A\times (B\times A)^{N\times N - 1} \times B$
+
+所以求出$M = B\times A$, $M$ 是 $6 \times 6$的, 然后先跑快速幂$C = M^{N\times N - 1}$, 最后做$A \times C \times B$
+
+\problem{GGS-DDU}
+
+\begin{description}
+\item[负责] 杨越、刘炎明
+\item[情况] 比赛中通过 - 178min(1Y)
+\end{description}
+
+挺裸的一个最小树形图模型，按题目所说连边，再从高级向低级连回边即可。使用$O(|V||E|)$的做法已经足够通过。
+
+\problem{Handling the Past}
+
+\begin{description}
+\item[负责] 刘炎明
+\item[情况] 赛后通过
+\end{description}
+
+看了一个小时一直以为是真·Retroactive Data Structures，结果发现其实不是，本题所有Timestamp都给定，并且允许离线，于是从一个挺麻烦的维护变成了一个傻逼题。
+
+按Timestamp离散化后，用线段树维护+1 -1(push/pop)序列上的区间和及最大后缀和，之后做类似于爬线段树的操作，
+先查询右子区间（当然要在$[0,timestamp]$这一段上，下同）的最大后缀和，如果>t（t的含义见后文），说明左子区间没用，答案产生在右子区间，向右走即可。
+否则，答案产生在左子区间，这时，求出右子区间的和，若为负数则代表最终pop了左子区间里push进去的值，因此向左走，并从查询栈顶向上第t个元素改为查询第$t + (-sum_r)$个即可。
+
+\problem{Improving the GPA}
+
+\begin{description}
+\item[负责] 刘炎明
+\item[情况] 比赛中通过 - 58min(1Y)
+\end{description}
+
+简单的背包问题。
+
+\problem{Just a Joke}
+
+\begin{description}
+\item[负责] 杨越
+\item[情况] 比赛中通过 - 88min(2Y)
+\end{description}
+
+考虑当前boy离圆心距离为$r$, 由于三点始终在一条直线上, 所以boy和girl的角速度相等. 假设速度方向与三点所成直线夹角为$\theta$于是有 $ \frac{V_1}{R} = V_2 \times \sin\theta$
+
+于是$\cos\theta = \sqrt{1-(\frac{V_1}{V_2 \times R})^2} $
+
+然后$\frac{dr}{dt} = V_2 \times \cos\theta$
+
+积分一下判断 $ \frac{V_2}{V_1} \times R \times \arcsin\frac{V_1}{V_2}$ 是否 $\leq D$
+
+\problem{Killing Monsters}
+
+\begin{description}
+\item[负责] 刘炎明
+\item[情况] 比赛中通过 - 19min(1Y)
+\end{description}
+
+容易求出怪物走在每个格子的时候受到的伤害（一边扫描即可），然后还用说吗？
+
+\section{总结}
+
+(by XHM) 
+
+这场打的好憋。。
+
+啊当然两个队友发挥还不错，我虽然想题很顺利但是写题犯了几个梦游级的失误。。导致每个题都要花很长时间才能够通过，而大部分时间是在盯着一份有一两个手贱的代码想哪里错了。
+
+总体来说，感觉多校期间，我们队比赛中间三个小时发挥可以算得上出色，但是第一小时抢水题和最后一小时围攻难题的能力还很需要锻炼，前期因为水题太慢被水队踩，后期关键题结束前调不出导致踩不掉很多水平小于等于我们的队，最后就导致成绩不理想。
+
+感觉针对这个问题要展开很多对应的训练才能解决，比如针对第一个小时疲软的问题，需要参加大量短时间的算法比赛培养思考速度、码题速度和正确率（诶嘿，正好一一对应了我们队三个人的缺陷）。
+
+至于最后一个小时感觉比较难解决，因为是心态方面出了问题，导致查不出错，或者优化不到时限以内，关于这点还没有想到太好的办法，先To be determined状态好了/w\
+
+
+\end{document}
+
